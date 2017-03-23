@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>IFRAME performance</title>
+        <link rel="stylesheet" href="style/base.css">
+        <link rel="stylesheet" href="style/sheet.css">
+        <style></style>
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <streaming-element id="se-1">
+                <video id="v-1" class="vjs-tech" autoplay="true" loop="true" controls="" src="http://html5demos.com/assets/dizzy.webm"></video>
+            </streaming-element>
+            <streaming-element id="se-2">
+                <video id="v-1" class="vjs-tech" autoplay="true" loop="true" controls="" src="http://dl1.webmfiles.org/big-buck-bunny_trailer.webm"></video>
+            </streaming-element>
+            <streaming-element id="se-3">
+                <video id="v-1" class="vjs-tech" autoplay="true" loop="true" controls="" src="https://c-a3c498473835a2f1f8798b315a0c39cb.http.atlas.cdn.yimg.com/gemini/pr/video_SwCD27gjBcCnyMRmZp8bSctFPfLVEu2_GCvtarQ45goog6aLpl1WSkPJZtk73BjKIbzpfiV1MHY-_1.mp4?a=gemini&amp;mr=0&amp;s=0ae08dc7c5c0aba85a8c6563755b977d"></video>
+            </streaming-element>
+
+            <streaming-element id="se-4">
+                <video id="v-4" class="vjs-tech" autoplay="true" loop="true" controls="" src="https://www.html5rocks.com/en/tutorials/video/basics/devstories.webm"></video>
+            </streaming-element>
+            <streaming-element id="se-5">
+                <video id="v-5" class="vjs-tech" autoplay="true" loop="true" controls="" src="http://techslides.com/demos/sample-videos/small.webm"></video>
+            </streaming-element>
+            <streaming-element id="se-6">
+                <video id="v-6" class="vjs-tech" autoplay="true" loop="true" controls="" src="http://clips.vorwaerts-gmbh.de/VfE.webm"></video>
+            </streaming-element>
+
+        </main>
+        <footer></footer>
+        <script>
+            NodeList.prototype.forEach = Array.prototype.forEach;
+
+            const videos = document.querySelectorAll("video");
+            const count = videos.length - 1;// zero index
+            const loops = 25;
+            let loop = 0;
+
+            const stamp = function () {
+                let index = 0;
+                videos.forEach(function (member, loop) {
+                    if (member.readyState === 4) {
+                        index += 1;
+                    }
+                });
+
+                console.log(index, count);
+
+                if (index === count) {
+                    console.log(count);
+                }// else {
+                //
+                // }\
+
+                if (++loop < loops) {
+                    stamp();
+                }
+                
+            }
+            stamp();
+
+        </script>
+    </body>
+</html>
