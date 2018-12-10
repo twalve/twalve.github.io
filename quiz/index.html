@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang=en>
+
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <title>FEWD</title>
+
+  <link rel=stylesheet href='https://fonts.googleapis.com/css?family=Lato:300,700'>
+  <!-- <link rel=stylesheet href="style/reset.css"> -->
+  <link rel=stylesheet href="style/bootstrap.css">
+  <link rel=stylesheet href="style/sheet.css">
+
+  <style></style>
+</head>
+
+<body class="single">
+  <main role=main id=main class=main>
+    <header>
+      <h1></h1>
+    </header>
+    <div id="questions">
+      <section id="question-q0" class="current">
+        <header>
+          <h1></h1>
+          <h2><i></i> of <b></b></h2>
+        </header>
+        <div>
+          <ol></ol>
+        </div>
+        <footer>
+          <button type="button" class="btn-default" alt="Reload the previous question">Back</button>
+          <button type="button" class="btn-default" alt="Load the next question">Next</button>
+        </footer>
+      </section>
+
+      <section id="question-resolve">
+        <header>
+          <h1></h1>
+          <h2>Well done!</h2>
+        </header>
+        <div>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <footer>
+          <button type="button" class="btn-default" alt="Load the next question">Try again</button>
+        </footer>
+      </section>
+    </div>
+    <footer>
+    </footer>
+  </main>
+
+  <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+  <script src="vendor/micro.js"></script>
+  <script src="questions/questions.js"></script>
+  <script src="scripts/scripts.js"></script>
+  <script>
+    STT.source = questions;
+    NGN.init();
+  </script>
+</body>
+
+</html>
