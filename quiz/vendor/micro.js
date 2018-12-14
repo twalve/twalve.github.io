@@ -1,7 +1,5 @@
 NodeList.prototype.forEach = Array.prototype.forEach;
-
 EventTarget.prototype.on = EventTarget.prototype.addEventListener;
-
 Element.prototype.attr = Element.prototype.setAttribute;
 
 const $ = function(selector) {

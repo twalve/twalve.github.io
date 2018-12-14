@@ -71,10 +71,15 @@ const NGN = {
       let ordered = document.createElement("ol");
       let selector = "#question-" + id;
       let target = document.querySelector(selector);
+      let heading = "&nbsp;"
 
       target.setAttribute("data-answer", question["answer"]);
 
-      target.querySelector("h1").innerHTML = NGN.base.encode(question["question"]);
+      if (question["question"]) {
+        heading = NGN.base.encode(question["question"]);
+      }
+
+      target.querySelector("h1").innerHTML = heading;
       target.querySelector("h2 i").innerHTML = q + 1;
       target.querySelector("h2 b").innerHTML = STT.questions;
 
