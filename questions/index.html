@@ -111,7 +111,9 @@
           <div><pre><code>// What will be the result of running the following code?
 
 const behaviors = {
-  getFullName: function() { return [this.firstName, this.lastName].join(" "); }
+  getFullName: function() {
+    return [this.firstName, this.lastName].join(" ");
+  }
 }
 
 const p1 = {
