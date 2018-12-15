@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang=en>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>SydJS 2018</title>
+
+    <link rel=stylesheet href='https://fonts.googleapis.com/css?family=Lato:300,700'>
+    <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark.min.css">
+
+    <!-- <link rel=stylesheet href="style/reset.css"> -->
+    <!-- <link rel=stylesheet href="style/bootstrap.css"> -->
+    <!-- <link rel=stylesheet href="style/sheet.css"> -->
+
+    <style>
+      :root {
+        --dark: #282c34;
+        --light: #abb2bf;
+        --white: white;
+        --primary: orange;
+      }
+
+      body {
+        background-color: var(--primary);
+        font-size: 2.5rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      main {
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        width: 100vw;
+      }
+
+      main > header {
+        display: none;
+      }
+
+      h1 {
+        color: var(--white);
+        font-family: "Lato", sans-serif;
+        font-weight: 300;
+      }
+
+      section {
+        background-color: var(--dark);
+      }
+
+      #questions {
+        height: 100%;
+        position: relative;
+      }
+
+      #questions input[type="radio"] {
+        left: -99rem;
+        position: absolute;
+      }
+
+      #questions input[type="radio"]:first-of-type {
+        z-index: 100;
+      }
+
+      #questions input[type="radio"]:checked + section {
+        bottom: 0;
+        z-index: 10;
+      }
+
+      #questions input[type="radio"]:checked + section + label + input + section + label {
+        z-index: 1000;
+      }
+
+      #questions section {
+        bottom: -100vh;
+        height: 100vh;
+        position: absolute;
+        width: 100vw;
+        z-index: 0;
+      }
+
+      #questions div {
+        margin: 0 1rem;
+      }
+
+      #questions label {
+        cursor: pointer;
+        height: 100vh;
+        position: absolute;
+        width: 100vw;
+        z-index: 100;
+      }
+
+      #questions label span {
+        left: -99rem;
+        position: absolute;
+      }
+
+    </style>
+  </head>
+
+  <body class="single">
+    <main role=main id=main class=main>
+      <header>
+        <h1></h1>
+      </header>
+      <div id="questions">
+        <input type="radio" id="q0" name="questions" checked>
+        <section id="question-q0">
+          <header><h1>Question 1</h1></header>
+          <div><pre><code>// What will be the result of running the following code?
+
+const behaviors = {
+  getFullName: function() { return [this.firstName, this.lastName].join(" "); }
+}
+
+const p1 = {
+  firstName: 'Jemima',
+  lastName: 'Sharkie'
+}
+
+Object.setPrototypeOf(p1, behaviors)
+console.log(p1.getFullName())</code></pre></div>
+          <footer></footer>
+        </section>
+        <label for="q0"><span>Question 1</span></label>
+
+        <input type="radio" id="q1" name="questions">
+        <section id="question-q1">
+          <header><h1>Question 2</h1></header>
+          <div><pre><code>// The following native JavaScript import is failing on
+// the myApp() line (myApp is undefined):
+
+import myApp, { MY_CONSTANT } from './my-app.js'
+myApp()
+
+// What is likely wrong with the import?</code></pre></div>
+          <footer></footer>
+        </section>
+        <label for="q1"><span>Question 2</span></label>
+
+        <input type="radio" id="q2" name="questions">
+        <section id="question-q2">
+          <header><h1>Question 3</h1></header>
+          <div><pre><code>// What gets printed to the console?
+
+Promise.resolve(5)
+  .then(() => {throw "something went wrong"})
+  .catch(() => console.log("opps"))
+  .then(() => console.log("hi"))</code></pre></div>
+          <footer></footer>
+        </section>
+        <label for="q2"><span>Question 3</span></label>
+
+        <input type="radio" id="q3" name="questions">
+        <section id="question-q3">
+          <header><h1>Question 4</h1></header>
+          <div><pre><code>// What is odd about the capture group `$1` passed into
+// the anonymous function?
+
+const regex = /Chr\(([&A-Za-z0-9]{2,4})\)\+?/gi;
+
+const cleaned = row.replace(regex, function($1) {
+  return SCDCD.defrag.hexOrDec(arguments[0])
+});</code></pre></div>
+          <footer></footer>
+        </section>
+        <label for="q3"><span>Question 4</span></label>
+
+        <input type="radio" id="q4" name="questions">
+        <section id="question-q4">
+          <header><h1>Question 5</h1></header>
+          <div><pre><code>// What does the following JavaScript do?
+
+$.extend($.expr[':'], {
+  over100pixels: function(collectionItem) {
+    return $(collectionItem).height() > 100;
+  }
+});</code></pre></div>
+          <footer></footer>
+        </section>
+        <label for="q4"><span>Question 5</span></label>
+
+        <input type="radio" id="q5" name="questions">
+        <section id="question-q5">
+          <header><h1>Question 6</h1></header>
+          <div><pre><code>// What does the following JavaScript do?
+
+function myFunction(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};</code></pre></div>
+          <footer></footer>
+        </section>
+        <label for="q5"><span>Question 6</span></label>
+
+
+
+        <input type="radio" id="qN" name="questions">
+        <section id="question-qN">
+          <header><h1>Done!</h1></header>
+          <div><pre><code></code></pre></div>
+          <footer></footer>
+        </section>
+        <label for="qN"><span>Done!</span></label>
+
+      </div>
+      <footer>
+      </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="vendor/micro.js"></script>
+    <script>
+      (function (){
+        const QSTNS = {
+          back: function () {
+            const checked = document.querySelector("input[type='radio']:checked")
+            const radios = document.querySelectorAll("input[type='radio']")
+            const index = Array.prototype.slice.call(radios).indexOf(checked)
+            const back = (index > 0) ? index - 1 : 0;
+
+            radios[back].checked = true;
+          },
+          keyed: function (event) {
+            if (event.keyCode === 37) {
+              QSTNS.back(event.keyCode)
+            }
+          },
+          listen: function () {
+            document.querySelector("body").on("keydown", QSTNS.keyed);
+          },
+          setup: function () {
+            hljs.configure({
+              languages: ["JavaScript"]
+            });
+            hljs.initHighlighting();
+          },
+          init: function () {
+            this.setup();
+            this.listen();
+          }
+        };
+
+        window.QSTNS = QSTNS;
+        QSTNS.init();
+
+      }());
+    </script>
+  </body>
+</html>
