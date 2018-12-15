@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html lang=en>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>SydJS 2018</title>
+
+    <link rel=stylesheet href='https://fonts.googleapis.com/css?family=Lato:300,700'>
+    <!-- <link rel=stylesheet href="style/reset.css"> -->
+    <!-- <link rel=stylesheet href="style/bootstrap.css"> -->
+    <!-- <link rel=stylesheet href="style/sheet.css"> -->
+
+    <style>
+      :root {
+        --dark: #282c34;
+        --light: #abb2bf;
+        --white: white;
+        --primary: orange;
+
+
+        --error: #f42323;
+        --success: #2BC22C;
+        --warning: #ffbf00;
+      }
+
+      body {
+        background: var(--white);
+        color: var(--light);
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body * {
+        box-sizing: border-box;
+      }
+
+      figure {
+        margin: 0;
+        padding: 0;
+      }
+
+      ol {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      #teams section {
+        position: absolute;
+        margin: calc(25vw - 8.5rem) 1rem 0;
+        width: calc(100vw - 2rem);
+      }
+
+      #teams header {
+        background-color: var(--dark);
+        border-radius: 50% 0 0 50%;
+        height: 17rem;
+        padding: 1rem;
+        position: absolute;
+        width: 17rem;
+      }
+
+      #teams figure {
+        border: .25rem solid var(--white);
+        border-radius: 50%;
+        height: 15rem;
+        position: relative;
+        width: 15rem;
+      }
+
+      #teams figure img {
+        border-radius: 7.5rem;
+        width: 100%;
+      }
+
+      #teams section > div {
+        align-items: center;
+        background-color: var(--dark);
+        display: flex;
+        flex-flow: row wrap;
+        height: 17rem;
+        justify-content: space-evenly;
+        position: relative;
+        margin: 0 17rem;
+      }
+
+      #teams div > div {
+        display: flex;
+        flex-grow: 1;
+        position: relative;
+      }
+
+      #teams div img {
+        background-color: var(--white);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 100%;
+        margin: .25rem;
+        width: 100%;
+      }
+
+      #teams footer {
+        background-color: var(--dark);
+        border-radius: 0 50% 50% 0;
+        height: 17rem;
+        padding: 1rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 17rem;
+      }
+
+      #teams p {
+        background-color: var(--success);
+        border-radius: 50%;
+        height: 15rem;
+        position: relative;
+        text-align: center;
+        width: 15rem;
+      }
+
+      #teams span {
+
+        color: var(--white);
+        display: block;
+        font-size: 10rem;
+        line-height: 1.5;
+        position: absolute;
+        text-align: center;
+        width: 15rem;
+      }
+
+      @-webkit-keyframes slide {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 3rem 3rem;
+        }
+      }
+
+
+
+
+    </style>
+  </head>
+
+  <body class="single">
+    <main role=main id=main class=main>
+      <header>
+        <h1></h1>
+      </header>
+      <div id="teams">
+        <section id="team-t0">
+          <header>
+            <figure>
+              <img src="avatars/1.png" alt="team captain" />
+            </figure>
+          </header>
+
+          <div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
+
+          </div>
+
+          <footer>
+            <p>
+              <span>9</span>
+            </p>
+          </footer>
+
+        </section>
+
+      </div>
+      <footer>
+        <div class="meter animate">
+          <div class="progress">
+            <span><span></span></span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="vendor/micro.js"></script>
+    <script>
+      // STT.source = questions;
+      // NGN.init();
+    </script>
+  </body>
+</html>
