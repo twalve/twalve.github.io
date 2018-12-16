@@ -1,0 +1,136 @@
+body {
+	background-color: whitesmoke;
+	color: black;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+}
+
+body * {
+	box-sizing: border-box;
+}
+
+ol, ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+  margin: 0 auto;
+  width: 20rem;
+}
+
+#questions {
+
+}
+
+#questions section {
+  display: none;
+}
+
+#questions section.current {
+  display: block;
+}
+
+#questions header {
+  position: relative;
+}
+
+#questions h1 {
+  margin-top: 2rem;
+}
+
+#questions h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+    position: absolute;
+    top: -2.5rem;
+}
+
+#questions i {
+  font-style: normal;
+}
+
+#questions b {
+  font-weight: normal;
+}
+
+#questions div {
+  min-height: 10rem;
+    margin-bottom: 1rem;
+}
+
+#questions ol {
+  list-style-position: inside;
+  list-style-type: upper-latin;
+}
+
+#questions ol li {
+  padding-left: .5rem;
+}
+
+#questions ol li.current {
+  background-color: lightgrey;
+  color: grey;
+}
+
+#questions ol li:hover {
+  background-color: grey;
+  color: whitesmoke;
+}
+
+#questions ol label {
+  cursor: pointer;
+  display: inline-block;
+    margin: .5rem 0 .5rem .75rem;
+    width: 90%;
+}
+
+#questions [type=radio] {
+  display: none;
+}
+
+#questions ul {
+  border: .25rem solid;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+#questions ul li {
+  font-size: 3rem;
+  font-weight: 900;
+  height: 5rem;
+  line-height: 2;
+  position: relative;
+  text-align: center;
+}
+
+#questions ul li:last-child:before {
+  background: black;
+  border-radius: 0 0 5rem 5rem;
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+#questions ul li:last-child {
+  color: whitesmoke;
+    line-height: 1.5;
+}
+
+#questions ul li:last-child:before {
+  background: black;
+  border-radius: 0 0 5rem 5rem;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+#questions footer button:last-child {
+  float: right;
+}

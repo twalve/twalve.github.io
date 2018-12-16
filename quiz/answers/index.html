@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang=en>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>SydJS 2018</title>
+
+    <link rel=stylesheet href='https://fonts.googleapis.com/css?family=Lato:300,700'>
+    <!-- <link rel=stylesheet href="style/reset.css"> -->
+    <!-- <link rel=stylesheet href="style/bootstrap.css"> -->
+    <!-- <link rel=stylesheet href="style/sheet.css"> -->
+
+    <style>
+      :root {
+        --dark: #282c34;
+        --light: #abb2bf;
+        --white: white;
+        --primary: orange;
+
+        --error: #f42323;
+        --success: #2BC22C;
+        --warning: #ffbf00;
+      }
+
+      body {
+        background: var(--white);
+        color: var(--light);
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body * {
+        box-sizing: border-box;
+      }
+
+      main {
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        width: 100vw;
+      }
+
+      h1 {
+        color: var(--dark);
+        font-family: monospace;
+        font-size: 4rem;
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        top: 2rem;
+        width: 100%;
+      }
+
+      figure {
+        margin: 0;
+        padding: 0;
+      }
+
+      ol {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      #teams section header,
+      #teams section > div,
+      #teams section footer {
+        top: 8rem;
+      }
+
+      #teams header {
+        background-color: var(--dark);
+        border-radius: 50% 0 0 50%;
+        height: 17rem;
+        padding: 1rem;
+        position: absolute;
+        width: 17rem;
+      }
+
+      #teams header img {
+        background-color: var(--white);
+      }
+
+      #teams figure {
+        border: .25rem solid var(--white);
+        border-radius: 50%;
+        height: 15rem;
+        position: relative;
+        width: 15rem;
+      }
+
+      #teams figure img {
+        border-radius: 7.5rem;
+        width: 100%;
+      }
+
+      #teams section > div {
+        align-items: center;
+        background-color: var(--dark);
+        display: flex;
+        flex-flow: row wrap;
+        height: 17rem;
+        justify-content: space-evenly;
+        position: relative;
+        margin: 0 17rem;
+      }
+
+      #teams div > div {
+        display: flex;
+        flex-grow: 1;
+        position: relative;
+        max-width: 13.5rem;
+      }
+
+      #teams div img {
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: .25rem solid var(--white);
+        height: 100%;
+        margin: .25rem;
+        width: 100%;
+      }
+
+      #teams footer {
+        background-color: var(--dark);
+        border-radius: 0 50% 50% 0;
+        height: 17rem;
+        padding: 1rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 17rem;
+      }
+
+      #teams p {
+        background-color: var(--success);
+        border: .25rem solid var(--white);
+        border-radius: 50%;
+        height: 15rem;
+        position: relative;
+        text-align: center;
+        width: 15rem;
+      }
+
+      #teams span {
+        color: var(--white);
+        display: block;
+        font-size: 10rem;
+        line-height: 1.5;
+        position: absolute;
+        text-align: center;
+        width: 15rem;
+      }
+
+      #teams {
+        height: 100%;
+        padding: 0 1rem;
+        position: relative;
+      }
+
+      #teams input[type="radio"] {
+        left: -99rem;
+        position: absolute;
+      }
+
+      #teams input[type="radio"]:first-of-type {
+        z-index: 100;
+      }
+
+      #teams input[type="radio"]:checked + section {
+        -webkit-animation: slide 10s linear;
+        z-index: 10;
+      }
+
+      #teams input[type="radio"]:checked + section + label + input + section + label {
+        z-index: 1000;
+      }
+
+      #teams section {
+        bottom: -100vh;
+        height: 100vh;
+        position: absolute;
+        width: calc(100vw - 2rem);
+        z-index: 0;
+      }
+
+      @-webkit-keyframes slide {
+        0% {
+          bottom: -80vh;
+        }
+        7.5% {
+          bottom: 0;
+        }
+        75% {
+          bottom: 0;
+        }
+        100% {
+          bottom: 100vh;
+        }
+      }
+
+      #teams label {
+        cursor: pointer;
+        height: 100vh;
+        position: absolute;
+        width: 100vw;
+        z-index: 100;
+      }
+
+      #teams label span {
+        left: -99rem;
+        position: absolute;
+      }
+
+      #teams #qN:checked + section span {
+        margin: 0 -17rem;
+        position: relative;
+        text-transform: uppercase;
+        width: 100vw;
+      }
+
+    </style>
+  </head>
+
+  <body class="single">
+    <main role=main id=main class=main>
+      <header>
+        <h1></h1>
+      </header>
+      <div id="teams">
+        <input type="radio" id="t0" name="teams" checked>
+        <section id="team-t0">
+          <h1>Team Github 1</h1>
+
+          <header>
+            <figure>
+              <img src="avatars/1.png" alt="team captain" />
+            </figure>
+          </header>
+
+          <div class="team-larger">
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/681464.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/872310.png" alt="team member" /></div>
+          </div>
+
+          <footer>
+            <p><span>9</span></p>
+          </footer>
+
+        </section>
+        <label for="t0"><span>Team 1</span></label>
+
+        <input type="radio" id="t1" name="teams">
+        <section id="team-t1">
+          <h1>Team Awesome</h1>
+
+          <header>
+            <figure>
+              <img src="avatars/3908721.jpg" alt="team captain" />
+            </figure>
+          </header>
+
+          <div class="team-large">
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1.png" alt="team member" /></div>
+          </div>
+
+          <footer>
+            <p><span>99</span></p>
+          </footer>
+
+        </section>
+        <label for="t1"><span>Team 2</span></label>
+
+        <input type="radio" id="t2" name="teams">
+        <section id="team-t2">
+          <h1>Team Bodacious</h1>
+
+          <header>
+            <figure>
+              <img src="avatars/89387.jpg" alt="team captain" />
+            </figure>
+          </header>
+
+          <div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div>
+            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div> -->
+            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div> -->
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1.png" alt="team member" /></div>
+          </div>
+
+          <footer>
+            <p><span>45</span></p>
+          </footer>
+
+        </section>
+        <label for="t2"><span>Team 3</span></label>
+
+        <input type="radio" id="t3" name="teams">
+        <section id="team-t3">
+          <h1>Team Chicken</h1>
+
+          <header>
+            <figure>
+              <img src="avatars/0.png" alt="team captain" />
+            </figure>
+          </header>
+
+          <div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
+            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div> -->
+            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div> -->
+            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div> -->
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
+            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1.png" alt="team member" /></div>
+          </div>
+
+          <footer>
+            <p><span>11</span></p>
+          </footer>
+
+        </section>
+        <label for="t3"><span>Team 4</span></label>
+
+        <input type="radio" id="qN" name="teams">
+        <section id="team-qN">
+          <header></header>
+          <div><span>Well done</span></div>
+          <footer></footer>
+        </section>
+        <label for="qN"><span>Well done</span></label>
+
+      </div>
+      <footer>
+        <div class="meter animate">
+          <div class="progress">
+            <span><span></span></span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="vendor/micro.js"></script>
+    <script>
+      (function (){
+        const NSWRS = {
+          ANIMATING: null,
+          autoplay: function () {
+            if (NSWRS.ANIMATING) window.clearTimeout(NSWRS.ANIMATING);
+
+            const checked = document.querySelector("input[type='radio']:checked")
+            const radios = document.querySelectorAll("input[type='radio']")
+            const index = Array.prototype.slice.call(radios).indexOf(checked)
+            const next = (index < (radios.length - 1)) ? index + 1 : 0;
+
+            radios[next].checked = true;
+            NSWRS.ANIMATING = setTimeout(NSWRS.autoplay, 10000)
+          },
+          back: function () {
+            const checked = document.querySelector("input[type='radio']:checked")
+            const radios = document.querySelectorAll("input[type='radio']")
+            const index = Array.prototype.slice.call(radios).indexOf(checked)
+            const back = (index > 0) ? index - 1 : 0;
+
+            radios[back].checked = true;
+          },
+          keyed: function (event) {
+            if (event.keyCode === 37) {
+              NSWRS.back(event.keyCode)
+            }
+          },
+          listen: function () {
+            document.querySelector("body").on("keydown", NSWRS.keyed);
+          },
+          setup: function () {
+            this.autoplay();
+          },
+          init: function () {
+            this.setup();
+            this.listen();
+          }
+        };
+
+        window.NSWRS = NSWRS;
+        NSWRS.init();
+
+      }());
+    </script>
+  </body>
+</html>
