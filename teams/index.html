@@ -17,7 +17,6 @@
         --white: white;
         --primary: orange;
 
-
         --error: #f42323;
         --success: #2BC22C;
         --warning: #ffbf00;
@@ -121,6 +120,7 @@
       #teams div img {
         background-repeat: no-repeat;
         background-size: contain;
+        border: .25rem solid var(--white);
         height: 100%;
         margin: .25rem;
         width: 100%;
@@ -216,11 +216,11 @@
         position: absolute;
       }
 
-      #teams #qN:checked + #team-qN + label span {
-        left: 0;
+      #teams #qN:checked + section span {
+        margin: 0 -17rem;
+        position: relative;
         text-transform: uppercase;
-        top: 8.5rem;
-        width: 100%;
+        width: 100vw;
       }
 
     </style>
@@ -317,7 +317,7 @@
 
           <header>
             <figure>
-              <img src="avatars/262641.png" alt="team captain" />
+              <img src="avatars/0.png" alt="team captain" />
             </figure>
           </header>
 
@@ -337,18 +337,13 @@
         </section>
         <label for="t3"><span>Team 4</span></label>
 
-
-
-
         <input type="radio" id="qN" name="teams">
         <section id="team-qN">
           <header></header>
-          <div><pre><code></code></pre></div>
+          <div><span>Well done</span></div>
           <footer></footer>
         </section>
-        <label for="qN"><span>Well done!</span></label>
-
-
+        <label for="qN"><span>Well done</span></label>
 
       </div>
       <footer>
