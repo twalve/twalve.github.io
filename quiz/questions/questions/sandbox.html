@@ -1,9 +1,18 @@
 <script>
 
 
-  var x = [typeof x, typeof y][1];
 
-  alert(typeof typeof x);
+  function foo(a, b) {
+      arguments[1] = 2;
+      alert(b);
+  }
+  foo(1);
+
+  function b(x, y, a) {
+    arguments[2] = 10;
+    alert(a);
+  }
+  b(1, 2, 3);
 
 
 </script>

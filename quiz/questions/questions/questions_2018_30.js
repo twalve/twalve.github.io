@@ -1,5 +1,5 @@
 ,
-q10: {
+q20: {
   _question: `// What is altered when we run the following code?
 
   var foo = {
@@ -23,7 +23,7 @@ q10: {
   level: 5
 }
 },
-q11: {
+q21: {
   _question: `// When we run this code, what will the browser alert?
 
   const foo = {
@@ -45,7 +45,7 @@ q11: {
   level: 5
 }
 },
-q12: {
+q22: {
   _question: `// When run, this code what will alert what?
 
   const f = (function f(){ return "1"; }, function g(){ return 2; })();
@@ -65,7 +65,7 @@ q12: {
   level: 5
 }
 },
-q13: {
+q23: {
   _question: `// What is altered when we run the following code?
 
 
@@ -89,7 +89,7 @@ q13: {
   level: 5
 }
 },
-q14: {
+q24: {
   _question: `// When we run this code, what will the browser alert?
 
   var x = [typeof x, typeof y][1];
@@ -108,7 +108,7 @@ q14: {
   level: 5
 }
 },
-q15: {
+q25: {
   _question: `
 
   Which operator is used in JavaScript to insert special characters?
@@ -125,7 +125,7 @@ q15: {
   level: 5
 }
 },
-q16: {
+q26: {
   _question: `
 
   How does JavaScript store dates in Objects of Date type?
@@ -142,7 +142,7 @@ q16: {
   level: 5
 }
 },
-q17: {
+q27: {
   _question: `
 
   C-style block-level scoping is not supported in JavaScript
@@ -159,7 +159,7 @@ q17: {
   level: 5
 }
 },
-q18: {
+q28: {
   _question: `
 
   Which of the following is not a valid JavaScript variable name?
@@ -176,7 +176,7 @@ q18: {
   level: 5
 }
 },
-q19: {
+q29: {
   _question: `
 
   Java Script entities start with a/an ____________ and end with a/an ______________
