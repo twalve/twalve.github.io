@@ -6,223 +6,66 @@
     <title>SydJS 2018</title>
 
     <link rel=stylesheet href='https://fonts.googleapis.com/css?family=Lato:300,700'>
-    <!-- <link rel=stylesheet href="style/reset.css"> -->
-    <!-- <link rel=stylesheet href="style/bootstrap.css"> -->
-    <!-- <link rel=stylesheet href="style/sheet.css"> -->
+    <link rel=stylesheet href="style/reset.css">
+    <link rel=stylesheet href="style/bootstrap.css">
+    <link rel=stylesheet href="style/sheet.css">
 
     <style>
-      :root {
-        --dark: #282c34;
-        --light: #abb2bf;
-        --white: white;
-        --primary: orange;
+    #answers {
+      height: 100%;
+      padding: 0 1rem;
+      position: relative;
+    }
 
-        --error: #f42323;
-        --success: #2BC22C;
-        --warning: #ffbf00;
-      }
+    #answers input[type="radio"] {
+      left: -99rem;
+      position: absolute;
+    }
 
-      body {
-        background: var(--white);
-        color: var(--light);
-        font-family: "Lato", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
+    #answers input[type="radio"]:first-of-type {
+      z-index: 100;
+    }
 
-      body * {
-        box-sizing: border-box;
-      }
+    #answers input[type="radio"]:checked + section {
+      /* -webkit-animation: slide 10s linear; */
+      z-index: 10;
+    }
 
-      main {
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
-        width: 100vw;
-      }
+    #answers input[type="radio"]:checked + section + label + input + section + label {
+      z-index: 1000;
+    }
 
-      h1 {
-        color: var(--dark);
-        font-family: monospace;
-        font-size: 4rem;
-        position: absolute;
-        text-align: center;
-        text-transform: uppercase;
-        top: 2rem;
-        width: 100%;
-      }
+    #answers section {
+      bottom: -100vh;
+      height: 100vh;
+      position: absolute;
+      width: calc(100vw - 2rem);
+      z-index: 0;
+    }
 
-      figure {
-        margin: 0;
-        padding: 0;
-      }
+    @-webkit-keyframes slide {
 
-      ol {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
+    }
 
-      p {
-        margin: 0;
-      }
+    #answers label {
+      cursor: pointer;
+      height: 100vh;
+      position: absolute;
+      width: 100vw;
+      z-index: 100;
+    }
 
-      #teams section header,
-      #teams section > div,
-      #teams section footer {
-        top: 8rem;
-      }
+    #answers label span {
+      left: -99rem;
+      position: absolute;
+    }
 
-      #teams header {
-        background-color: var(--dark);
-        border-radius: 50% 0 0 50%;
-        height: 17rem;
-        padding: 1rem;
-        position: absolute;
-        width: 17rem;
-      }
-
-      #teams header img {
-        background-color: var(--white);
-      }
-
-      #teams figure {
-        border: .25rem solid var(--white);
-        border-radius: 50%;
-        height: 15rem;
-        position: relative;
-        width: 15rem;
-      }
-
-      #teams figure img {
-        border-radius: 7.5rem;
-        width: 100%;
-      }
-
-      #teams section > div {
-        align-items: center;
-        background-color: var(--dark);
-        display: flex;
-        flex-flow: row wrap;
-        height: 17rem;
-        justify-content: space-evenly;
-        position: relative;
-        margin: 0 17rem;
-      }
-
-      #teams div > div {
-        display: flex;
-        flex-grow: 1;
-        position: relative;
-        max-width: 13.5rem;
-      }
-
-      #teams div img {
-        background-repeat: no-repeat;
-        background-size: contain;
-        border: .25rem solid var(--white);
-        height: 100%;
-        margin: .25rem;
-        width: 100%;
-      }
-
-      #teams footer {
-        background-color: var(--dark);
-        border-radius: 0 50% 50% 0;
-        height: 17rem;
-        padding: 1rem;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 17rem;
-      }
-
-      #teams p {
-        background-color: var(--success);
-        border: .25rem solid var(--white);
-        border-radius: 50%;
-        height: 15rem;
-        position: relative;
-        text-align: center;
-        width: 15rem;
-      }
-
-      #teams span {
-        color: var(--white);
-        display: block;
-        font-size: 10rem;
-        line-height: 1.5;
-        position: absolute;
-        text-align: center;
-        width: 15rem;
-      }
-
-      #teams {
-        height: 100%;
-        padding: 0 1rem;
-        position: relative;
-      }
-
-      #teams input[type="radio"] {
-        left: -99rem;
-        position: absolute;
-      }
-
-      #teams input[type="radio"]:first-of-type {
-        z-index: 100;
-      }
-
-      #teams input[type="radio"]:checked + section {
-        -webkit-animation: slide 10s linear;
-        z-index: 10;
-      }
-
-      #teams input[type="radio"]:checked + section + label + input + section + label {
-        z-index: 1000;
-      }
-
-      #teams section {
-        bottom: -100vh;
-        height: 100vh;
-        position: absolute;
-        width: calc(100vw - 2rem);
-        z-index: 0;
-      }
-
-      @-webkit-keyframes slide {
-        0% {
-          bottom: -80vh;
-        }
-        7.5% {
-          bottom: 0;
-        }
-        75% {
-          bottom: 0;
-        }
-        100% {
-          bottom: 100vh;
-        }
-      }
-
-      #teams label {
-        cursor: pointer;
-        height: 100vh;
-        position: absolute;
-        width: 100vw;
-        z-index: 100;
-      }
-
-      #teams label span {
-        left: -99rem;
-        position: absolute;
-      }
-
-      #teams #qN:checked + section span {
-        margin: 0 -17rem;
-        position: relative;
-        text-transform: uppercase;
-        width: 100vw;
-      }
+    #answers #qN:checked + section span {
+      margin: 0 -17rem;
+      position: relative;
+      text-transform: uppercase;
+      width: 100vw;
+    }
 
     </style>
   </head>
@@ -232,146 +75,77 @@
       <header>
         <h1></h1>
       </header>
-      <div id="teams">
-        <input type="radio" id="t0" name="teams" checked>
-        <section id="team-t0">
-          <h1>Team Github 1</h1>
 
-          <header>
-            <figure>
-              <img src="avatars/1.png" alt="team captain" />
-            </figure>
-          </header>
-
-          <div class="team-larger">
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/681464.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/872310.png" alt="team member" /></div>
-          </div>
-
-          <footer>
-            <p><span>9</span></p>
-          </footer>
-
+      <div id="answers">
+        <input type="radio" id="a0" name="answers" checked>
+        <section id="answer-a0">
+          <ol>
+            <li><label><span>$</span><input type="checkbox" name="ans0" value="1"></label></li>
+            <li><label><span>page</span><input type="checkbox" name="ans0" value="2"></label></li>
+            <li><label><span>body</span><input type="checkbox" name="ans0" value="3"></label></li>
+            <li><label><span>document</span><input type="checkbox" name="ans0" value="4"></label></li>
+          </ol>
         </section>
-        <label for="t0"><span>Team 1</span></label>
 
-        <input type="radio" id="t1" name="teams">
-        <section id="team-t1">
-          <h1>Team Awesome</h1>
-
-          <header>
-            <figure>
-              <img src="avatars/3908721.jpg" alt="team captain" />
-            </figure>
-          </header>
-
-          <div class="team-large">
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1.png" alt="team member" /></div>
-          </div>
-
-          <footer>
-            <p><span>99</span></p>
-          </footer>
-
+        <input type="radio" id="a1" name="answers">
+        <section id="answer-a1">
+          <ol>
+            <li><label><span>Jennifer</span><input type="checkbox" name="ans1" value="1"></label></li>
+            <li><label><span>Jemima</span><input type="checkbox" name="ans1" value="2"></label></li>
+            <li><label><span>Jelly</span><input type="checkbox" name="ans1" value="3"></label></li>
+            <li><label><span>All of the above</span><input type="checkbox" name="ans1" value="4"></label></li>
+          </ol>
         </section>
-        <label for="t1"><span>Team 2</span></label>
 
-        <input type="radio" id="t2" name="teams">
-        <section id="team-t2">
-          <h1>Team Bodacious</h1>
-
-          <header>
-            <figure>
-              <img src="avatars/89387.jpg" alt="team captain" />
-            </figure>
-          </header>
-
-          <div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div>
-            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div> -->
-            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div> -->
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1.png" alt="team member" /></div>
-          </div>
-
-          <footer>
-            <p><span>45</span></p>
-          </footer>
-
+        <input type="radio" id="a2" name="answers">
+        <section id="answer-a2">
+          <ol>
+            <li><label><span>Moomoo</span><input type="checkbox" name="ans2" value="1"></label></li>
+            <li><label><span>Jemima</span><input type="checkbox" name="ans2" value="2"></label></li>
+            <li><label><span>Chicken</span><input type="checkbox" name="ans2" value="3"></label></li>
+            <li><label><span>All of the above</span><input type="checkbox" name="ans2" value="4"></label></li>
+          </ol>
         </section>
-        <label for="t2"><span>Team 3</span></label>
 
-        <input type="radio" id="t3" name="teams">
-        <section id="team-t3">
-          <h1>Team Chicken</h1>
-
-          <header>
-            <figure>
-              <img src="avatars/0.png" alt="team captain" />
-            </figure>
-          </header>
-
-          <div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1615.jpg)" alt="team member" /></div>
-            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/89387.jpg" alt="team member" /></div> -->
-            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/119128.jpg" alt="team member" /></div> -->
-            <!-- <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/262641.png" alt="team member" /></div> -->
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/3908721.jpg" alt="team member" /></div>
-            <div><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background-image: url(avatars/1.png" alt="team member" /></div>
-          </div>
-
-          <footer>
-            <p><span>11</span></p>
-          </footer>
-
+        <input type="radio" id="a3" name="answers">
+        <section id="answer-a3">
+          <ol>
+            <li><label><span>Doug Crockford</span><input type="checkbox" name="ans3" value="1"></label></li>
+            <li><label><span>Dave Crockford</span><input type="checkbox" name="ans3" value="2"></label></li>
+            <li><label><span>Jim Rockford</span><input type="checkbox" name="ans3" value="3"></label></li>
+            <li><label><span>All of the above</span><input type="checkbox" name="ans3" value="4"></label></li>
+          </ol>
         </section>
-        <label for="t3"><span>Team 4</span></label>
 
-        <input type="radio" id="qN" name="teams">
-        <section id="team-qN">
+        <input type="radio" id="aN" name="answers">
+        <section id="answer-aN">
           <header></header>
           <div><span>Well done</span></div>
           <footer></footer>
         </section>
-        <label for="qN"><span>Well done</span></label>
+        <label for="aN"><span>Well done</span></label>
 
       </div>
+
       <footer>
-        <div class="meter animate">
-          <div class="progress">
-            <span><span></span></span>
-          </div>
-        </div>
+        <nav>
+          <ul>
+            <li>
+              <input type="button" id="back" value="back">
+            </li>
+            <li>
+              <button id="next">next</button>
+            </li>
+          </ul>
+        </nav>
       </footer>
     </main>
 
     <script src="vendor/micro.js"></script>
     <script>
       (function (){
-        const NSWRS = {
-          ANIMATING: null,
-          autoplay: function () {
-            if (NSWRS.ANIMATING) window.clearTimeout(NSWRS.ANIMATING);
+        const MLTPL = {
 
-            const checked = document.querySelector("input[type='radio']:checked")
-            const radios = document.querySelectorAll("input[type='radio']")
-            const index = Array.prototype.slice.call(radios).indexOf(checked)
-            const next = (index < (radios.length - 1)) ? index + 1 : 0;
-
-            radios[next].checked = true;
-            NSWRS.ANIMATING = setTimeout(NSWRS.autoplay, 10000)
-          },
           back: function () {
             const checked = document.querySelector("input[type='radio']:checked")
             const radios = document.querySelectorAll("input[type='radio']")
@@ -380,13 +154,27 @@
 
             radios[back].checked = true;
           },
+          then: function () {
+            const checked = document.querySelector("input[type='radio']:checked")
+            const radios = document.querySelectorAll("input[type='radio']")
+            const index = Array.prototype.slice.call(radios).indexOf(checked)
+            const then = (index < (radios.length - 1)) ? index + 1 : 0;
+
+            radios[then].checked = true;
+          },
           keyed: function (event) {
-            if (event.keyCode === 37) {
-              NSWRS.back(event.keyCode)
+            const keycode = event.keyCode;
+
+            if (keycode === 37) {
+              MLTPL.back(keycode)
+            } else if (keycode === 39) {
+              MLTPL.then(keycode)
             }
           },
           listen: function () {
-            document.querySelector("body").on("keydown", NSWRS.keyed);
+            // document.querySelector("body").on("keydown", MLTPL.keyed);
+            document.querySelector("nav button").on("click", MLTPL.back);
+            document.querySelector("nav [type='button']").on("click", MLTPL.then);
           },
           setup: function () {
             this.autoplay();
@@ -397,8 +185,8 @@
           }
         };
 
-        window.NSWRS = NSWRS;
-        NSWRS.init();
+        window.MLTPL = MLTPL;
+        MLTPL.init();
 
       }());
     </script>
