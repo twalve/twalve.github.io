@@ -2,17 +2,14 @@
 
 
 
-  function foo(a, b) {
-      arguments[1] = 2;
-      alert(b);
-  }
-  foo(1);
+  var a={},
+      b={key:'b'},
+      c={key:'c'};
 
-  function b(x, y, a) {
-    arguments[2] = 10;
-    alert(a);
-  }
-  b(1, 2, 3);
+  a[b]=123;
+  a[c]=456;
+
+  console.log(a[b]);
 
 
 </script>
