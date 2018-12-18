@@ -1,0 +1,32 @@
+
+:root {
+  --dark: #282c34;
+  --light: #abb2bf;
+  --js: #f0db4f;
+
+  --white: white;
+  --zebra: whitesmoke;
+
+  --primary: orange;
+  --error: #f42323;
+  --success: #2BC22C;
+  --warning: #ffbf00;
+
+}
+
+body {
+  background: var(--white);
+  color: var(--dark);
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+ol, ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

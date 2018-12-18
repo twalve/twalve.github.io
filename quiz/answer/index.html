@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html lang=en>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>SydJS 2018</title>
+
+    <link rel=stylesheet href='https://fonts.googleapis.com/css?family=Lato:300,700'>
+    <link rel=stylesheet href="style/reset.css">
+    <link rel=stylesheet href="style/bootstrap.css">
+    <link rel=stylesheet href="style/sheet.css">
+
+    <style>
+      #answer {
+        height: 411px;
+        width: 823px;
+      }
+
+      #answer {
+        height: 100vh;
+        position: relative;
+        width: 100vw;
+      }
+
+      #answer input[type="radio"] {
+        left: -99rem;
+        position: absolute;
+        top: 0;
+      }
+
+      #answer div {
+        background-color: white;
+        height: 100%;
+        opacity: .5;
+        position: relative;
+        width: 100%;
+      }
+
+      #answer > ol {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      #answer > ol li {
+        height: 20%;
+        position: relative;
+      }
+
+      #answer > ol li:nth-child(even) {
+        background-color: var(--zebra);
+      }
+
+      #answer > ol li.selected {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+      }
+
+      #answer span {
+        background-color: var(--dark);
+        border-radius: 50%;
+        color: var(--white);
+        height: 3rem;
+        left: 1.25rem;
+        padding: 1rem;
+        position: absolute;
+        text-align: center;
+        top: 1.25rem;
+        width: 3rem;
+      }
+
+      #answer li.selected span {
+        color: var(--white);
+        background-color: #004085;
+        border-color: #004085;
+      }
+
+      #answer p {
+        font-size: 2rem;
+        line-height: 2.5;
+        padding-left: 5rem;
+      }
+
+      #answer > ul {
+        bottom: 0;
+        height: 20%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+      }
+
+      #answer > input[type="radio"]:checked ~ ul {
+        z-index: 1;
+      }
+
+      #answer > ul li {
+        height: 100%;
+        position: relative;
+      }
+
+      #answer > ul button {
+        float: right;
+        margin: 1rem;
+      }
+
+      aside {
+        align-items: center;
+        background-color: var(--js);
+        display: none;
+        font-size: 2rem;
+        height: 100%;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      aside p {
+        padding: 0 1rem;
+        text-align: right;
+      }
+
+      @media screen and (max-width: 767px) {
+        aside {
+          display: flex
+        }
+      }
+
+
+
+    </style>
+  </head>
+
+  <body class="single">
+    <main role=main id=main class=main>
+      <header>
+        <h1></h1>
+      </header>
+
+      <div id="answers">
+        <section id="answer">
+          <div></div>
+
+          <input type="radio" id="r0" name="answer" value="1">
+          <input type="radio" id="r1" name="answer" value="2">
+          <input type="radio" id="r2" name="answer" value="3">
+          <input type="radio" id="r3" name="answer" value="4">
+
+          <ol>
+            <li><label for="r0"><span>A</span><p>2</p></label></li>
+            <li><label for="r1"><span>B</span><p>a</p></label></li>
+            <li><label for="r2"><span>C</span><p>undefined</p></label></li>
+            <li><label for="r3"><span>D</span><p>function a(x) { return x * 2; }</p></label></li>
+          </ol>
+
+          <ul>
+            <li><button id="next" class="btn-default btn-primary btn-lg">CLICK TO SUBMIT</button></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <footer></footer>
+    </main>
+
+    <aside>
+      <p>Turn your Mobile to landscape to see the answer options</p>
+    </aside>
+
+    <script src="vendor/micro.js"></script>
+    <script>
+      (function (){
+        const MLTPL = {
+
+          back: function () {
+
+          },
+          then: function () {
+            // submit
+          },
+          highlight: function (event) {
+            let selected =  event.target;
+
+            if (document.querySelector("ol li.selected")) {
+              document.querySelector("ol li.selected").classList.remove("selected");
+            }
+
+            if (event.target.nodeName.toLowerCase() === "p") {
+              selected = event.target.parentNode;
+            }
+
+            if (selected.nodeName.toLowerCase() === "label") {
+              selected = selected.parentNode;
+            }
+
+            selected.classList.add("selected");
+
+          },
+          listen: function () {
+            // document.querySelector("nav button").on("click", MLTPL.back);
+            document.querySelector("button").on("click", MLTPL.then);
+            document.querySelectorAll("ol li").forEach(function(element){
+              element.on("click", MLTPL.highlight);
+            });
+
+          },
+          setup: function () {
+
+          },
+          init: function () {
+            this.setup();
+            this.listen();
+          }
+        };
+
+        window.MLTPL = MLTPL;
+        MLTPL.init();
+
+      }());
+    </script>
+  </body>
+</html>
