@@ -1,0 +1,16 @@
+{
+  "short_name": "SydJS",
+  "name": "Sydney JavaScript Developers Network",
+  "icons": [
+    {
+      "src": "/icons/android-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/index.html?source=pwa",
+  "background_color": "#f0db4f",
+  "display": "standalone",
+  "scope": "/sydjs/",
+  "theme_color": "#f0db4f"
+}
