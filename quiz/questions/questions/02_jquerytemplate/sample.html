@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Examples</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="http://codepb.github.io/jquery-template/jquery.loadTemplate-0.4.3.js"></script>
+
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      img {
+        max-width: 10rem;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="script-template-container"></div>
+
+    <!-- Template -->
+    <script type="text/html" id="template">
+      <img data-src="authorPicture" data-alt="author" data-link-wrap="authorPicture"/>
+      <div class="post-container">
+        <div data-content="author"></div>
+        <div data-content="date"></div>
+        <p data-content="post" data-format="sameCaseFormatter" data-format-template="upper"></p>
+      </div>
+    </script>
+
+    <script type="text/javascript">
+      $(function() {
+        // Set our data for the post
+        var post = {
+          author: 'Joe Bloggs',
+          date: '23th May 2018',
+          authorPicture: 'graphics/mrpuglington.png',
+          post: 'This is the contents of my post'
+        }
+
+        // Load template from element on same page,
+        // and populate the data from the post object.
+        $(".script-template-container").loadTemplate("#template", post);
+      });
+    </script>
+  </body>
+</html>

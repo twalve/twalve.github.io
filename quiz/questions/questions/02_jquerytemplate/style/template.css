@@ -1,0 +1,29 @@
+.post-wrapper {
+    border: .125rem dashed lightgrey;
+  float: left;
+  padding: 1rem;
+  width: 100%;
+}
+
+.post-wrapper a {
+  display: inline-block;
+    float: right;
+    margin-left: .75rem;
+}
+
+.post-wrapper img {
+  width: 5rem;
+}
+
+.post-wrapper h1 {
+    margin: 0;
+}
+
+.post-wrapper h2 {
+  font-size: .9rem;
+    margin: -.25rem 0 0;
+}
+
+.post-wrapper p {
+    margin: .5rem 0 0;
+}

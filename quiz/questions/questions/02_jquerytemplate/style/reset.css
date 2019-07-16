@@ -1,0 +1,17 @@
+body * {
+  box-sizing: border-box;
+}
+
+fieldset {
+  border: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+legend {
+  display: none;
+}
+
+button {
+  outline: none !important;
+}

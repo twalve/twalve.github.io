@@ -1,0 +1,66 @@
+body {
+  background: whitesmoke;
+  color: black;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 3rem;
+  padding: 0;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 24rem;
+}
+
+main > header h1 {
+  line-height: 1.25;
+  margin: 0 0 -.25rem;
+}
+
+main > header p {
+  margin: 0 0 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .25rem;
+}
+
+label span {
+  display: inline-block;
+  font-size: .9rem;
+  width: 33%;
+}
+
+label input {
+  border-radius: .25rem;
+  border: .1rem solid lightgray;
+  outline: none;
+  padding: .5rem;
+  width: 64%;
+}
+
+label input.error {
+  background-color: tomato;
+}
+
+label input.error:focus {
+  border-color: brown;
+}
+
+label label {
+  color: tomato;
+  font-size: smaller;
+  margin-left: 37%;
+}
+
+button {
+  border-radius: .25rem;
+  margin-left: 34%;
+  padding: .35rem 1rem;
+  font-size: 1.1rem;
+}
+
+p.instructions {
+  color: lightgrey;
+}
