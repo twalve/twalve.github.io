@@ -1,6 +1,7 @@
 var s = {
     counter: 0,
     condition: 0,
+    video20: false,
     video25: false,
     video50: false,
     video75: false,
@@ -9,6 +10,7 @@ var s = {
 
 const e = {
     counter: 0,
+    video20: false,
     video25: false,
     video50: false,
     video75: false,
@@ -17,6 +19,7 @@ const e = {
 
 const v = {
     counter: 0,
+    video20: false,
     video25: false,
     video50: false,
     video75: false,
@@ -27,11 +30,20 @@ const trackEventAdobe = function (milestone, source) {
     console.log("milestone: " + milestone + ", from " + source);
 }
 
+const trackEventCxense = function (milestone, source) {
+    console.log("milestone: " + milestone + ", from " + source);
+}
+
 const setMilestone = function (milestone) {
     asset = "experimental";
     video = "videoMilestone" + milestone;
     key = "video" + milestone;
-    trackEventAdobe(video, asset);
+    if (milestone === 20) {
+        trackEventCxense(video, asset);
+    } else {
+        trackEventAdobe(video, asset);
+    }
+
     s[key] = true;
 
     console.log("percentage -> " + milestone);
@@ -39,6 +51,17 @@ const setMilestone = function (milestone) {
 };
 
 const conditionals = {
+    videoMilestone20: function (percentage) {
+        if (percentage >= 20 && !s.video20 && percentage < 25 ) {
+            s.counter += 3
+            if (!(s.video25 || s.video50 || s.video75 || s.video95)) {
+                s.counter += 4
+                return setMilestone("20");
+            }
+        } else {
+            return false;
+        }
+    },
     videoMilestone25: function (percentage) {
         if (percentage >= 25 && !s.video25 && percentage < 50 ) {
             s.counter += 3
@@ -89,6 +112,7 @@ const conditionals = {
 }
 
 const milestones = [
+    "videoMilestone20",
     "videoMilestone25",
     "videoMilestone50",
     "videoMilestone75",
@@ -96,7 +120,7 @@ const milestones = [
     "videoMilestone100"
 ];
 
-conditional = conditionals[milestones[s.condition]];
+var conditional = conditionals[milestones[s.condition]];
 
 const experimental = function (percentage) {
     if (conditional(percentage)) {
@@ -110,7 +134,14 @@ const experimental = function (percentage) {
 const evolution = function (percentage) {
     var asset = "evolution";
 
-    if (!e.video25 && percentage >= 25 && percentage < 50 ) {
+    if (!e.video20 && percentage >= 20 && percentage < 25 ) {
+        e.counter += 3
+        if (!(e.video25 || e.video50 || e.video75 || e.video95)) {
+            e.counter += 4
+            trackEventCxense("videoMilestone20", asset);
+            e.video20 = true;
+        }
+    } else if (!e.video25 && percentage >= 25 && percentage < 50 ) {
         e.counter += 3
         if (!(e.video50 || e.video75 || e.video95)) {
             e.counter += 3
@@ -138,13 +169,20 @@ const evolution = function (percentage) {
             trackEventAdobe("videoMilestone95", asset);
             e.video95 = true;
         }
-    } 
+    }
 };
 
 const production = function (percentage) {
     var asset = "production";
 
-    if (percentage >= 25 && percentage < 50 ) {
+    if (percentage >= 20 && percentage < 25 ) {
+        v.counter += 2
+        if (!(v.video20 || v.video25 || v.video50 || v.video75 || v.video95)) {
+            v.counter += 5
+            trackEventCxense("videoMilestone20", asset);
+            v.video20 = true;
+        }
+    } else if (percentage >= 25 && percentage < 50 ) {
         v.counter += 2
         if (!(v.video25 || v.video50 || v.video75 || v.video95)) {
             v.counter += 4
@@ -172,5 +210,5 @@ const production = function (percentage) {
             trackEventAdobe("videoMilestone95", asset);
             v.video95 = true;
         }
-    } 
+    }
 };
