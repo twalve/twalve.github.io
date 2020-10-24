@@ -1,0 +1,137 @@
+menu {
+  margin: 0 auto;
+  width: 15rem;
+}
+
+ul {
+  margin-left: .25rem; 
+ }
+
+li {
+  display: inline-block;
+  margin-bottom: .25rem;
+}
+
+button {
+  border-radius: .25rem;
+  border-style: none;
+  font-size: 1.5rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  width: 3.5rem;
+}
+
+input {
+  font-size: 1.5rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  width: 7rem;
+}
+
+grid {
+  background-color: var(--silver);
+  display: block;
+  height: 14rem;
+  margin: 3.5rem auto;
+  position: relative;
+  width: 10.5rem;
+}
+
+rect {
+  display: block;
+  font-size: 2rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  position: absolute;
+  width: 3.5rem;
+}
+
+rect[hidden] {
+  display: none;
+}
+
+rect.w3 {
+  width: 10.5rem;
+}
+
+rect.w2 {
+  width: 7rem;
+}
+
+rect.w1 {
+  width: 3.5rem;
+}
+
+rect.h4 {
+  height: 14rem;
+}
+
+rect.h3 {
+  height: 10.5rem;
+}
+
+rect.h2 {
+  height: 7rem;
+}
+
+rect.h1 {
+  height: 3.5rem;
+}
+
+rect.r1 {
+  top: 0;
+}
+
+rect.r2 {
+  top: 3.5rem;
+}
+
+rect.r3 {
+  top: 7rem;
+}
+
+rect.r4 {
+  top: 10.5rem;
+}
+
+rect.c1 {
+  left: 0;
+}
+
+rect.c2 {
+  left: 3.5rem;
+}
+
+rect.c3 {
+  left: 7rem;
+}
+
+rect.active {
+  background-color: var(--tertiary);
+  border: 0.125rem solid var(--light);
+}
+
+button.active {
+  background-color: var(--tertiary);
+}
+
+h2 {
+  margin: 0 auto;
+  width: 25%;
+}
+
+span {
+  color: var(--light);
+  display: inline-block;
+  font-weight: 200;
+  width: calc(50% - .25rem);
+}
+
+span:first-of-type {
+  color: var(--greyish);
+  text-align: right;
+}
+
+span.switch {
+  color: var(--greyish);
+}

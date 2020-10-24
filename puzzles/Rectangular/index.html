@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rectangular</title>
+  <link rel=stylesheet href="style/base.css" />
+  <link rel=stylesheet href="style/sheet.css" />
+</head>
+<body>
+  <grid id="grid">
+    <rect class="w3 h4"></rect>
+
+    <rect class="w3 h3"></rect>
+
+    <rect class="w3 h2" hidden></rect>
+
+    <rect class="w3 h1 r4"></rect>
+
+    <rect class="w2 h4"></rect>
+    <rect class="w2 h4 c2"></rect>
+
+    <rect class="w2 h3"></rect>
+    <rect class="w2 h3 c2"></rect>
+
+    <rect class="w2 h2 c2"></rect>
+    <rect class="w2 h2 r3 c2"></rect>
+
+    <rect class="w2 h1 r3 c2"></rect>
+    <rect class="w2 h1 r4"></rect>
+    <rect class="w2 h1 r4 c2"></rect>
+
+    <rect class="w1 h4"></rect>
+    <rect class="w1 h4 c2"></rect>
+    <rect class="w1 h4 c3"></rect>
+
+    <rect class="w1 h3"></rect>
+    <rect class="w1 h3 c2"></rect>
+    <rect class="w1 h3 c3"></rect>
+
+    <rect class="w1 h2 c2"></rect>
+    <rect class="w1 h2 c3"></rect>
+    <rect class="w1 h2 r3 c2"></rect>
+    <rect class="w1 h2 r3 c3"></rect>
+
+    <rect class="w1 h1 r3 c2"></rect>
+    <rect class="w1 h1 r3 c3"></rect>
+    <rect class="w1 h1 r4"></rect>
+    <rect class="w1 h1 r4 c2"></rect>
+    <rect class="w1 h1 r4 c3"></rect>
+  </grid>
+
+  <menu>
+    <ol>
+      <li><button id="w3h4">3x4</button></li>
+      <li><button id="w3h3">3x3</button></li>
+      <li><button id="w3h2">3x2</button></li>
+      <li><button id="w3h1">3x1</button></li>
+      <li><button id="w2h4">2x4</button></li>
+      <li><button id="w2h3">2x3</button></li>
+      <li><button id="w2h2">2x2</button></li>
+      <li><button id="w2h1">2x1</button></li>
+      <li><button id="w1h4">1x4</button></li>
+      <li><button id="w1h3">1x3</button></li>
+      <li><button id="w1h2">1x2</button></li>
+      <li><button id="w1h1">1x1</button></li>
+    </ol>
+    <ul>
+      <li><input type="button" id="clear" value="clear" /></li>
+      <li><input type="button" id="all" value="all" /></li>
+    </ul>
+  </menu>
+
+  <aside>
+    <h2>
+      <span>count:</span>
+      <span id="count"></span>
+    </h2>
+  </aside>
+
+  <script src="vendor/micro/micro.1.0.js"></script>
+  <script src="scripts/scripts.js"></script>
+</body>
+</html>
