@@ -76,9 +76,19 @@
     start: function () {
       this.coat();
     },
+    setup: function () {
+      const search = document.location.search
+      if (search) {
+        if (PZZL[search.substr(1)]) {
+          PZZL[search.substr(1)]()
+        }
+      }
+
+    },
     init: function () {
       this.listen();
-      this.start();
+      this.setup();
+      // this.start();
     }
   }
 
