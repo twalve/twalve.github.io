@@ -1,0 +1,96 @@
+
+  rect.w3.h4.active:nth-child(1) {
+    background-color: var(--primary);
+  }
+
+  rect.w3.h3.active:nth-child(2) {
+    background-color: var(--primary);
+  }
+
+  rect.w3.h2.active:nth-child(3) {
+    background-color: var(--primary);
+  }
+
+  rect.w3.h1.active:nth-child(4) {
+    background-color: var(--primary);
+  }
+
+  rect.w2.h4.active:nth-child(5) {
+    background-color: var(--primary);
+  }
+  rect.w2.h4.active:nth-child(6) {
+    background-color: var(--secondary);
+  }
+
+  rect.w2.h3.active:nth-child(7) {
+    background-color: var(--primary);
+  }
+  rect.w2.h3.active:nth-child(8) {
+    background-color: var(--secondary);
+  }
+
+  rect.w2.h2.active:nth-child(9) {
+    background-color: var(--primary);
+  }
+  rect.w2.h2.active:nth-child(10) {
+    background-color: var(--secondary);
+  }
+
+  rect.w2.h1.active:nth-child(11) {
+    background-color: var(--primary);
+  }
+  rect.w2.h1.active:nth-child(12) {
+    background-color: var(--secondary);
+  }
+  rect.w2.h1.active:nth-child(13) {
+    background-color: var(--tertiary);
+  }
+
+  rect.w1.h4.active:nth-child(14) {
+    background-color: var(--primary);
+  }
+  rect.w1.h4.active:nth-child(15) {
+    background-color: var(--secondary);
+  }
+  rect.w1.h4.active:nth-child(16) {
+    background-color: var(--tertiary);
+  }
+
+  rect.w1.h3.active:nth-child(17) {
+    background-color: var(--primary);
+  }
+  rect.w1.h3.active:nth-child(18) {
+    background-color: var(--secondary);
+  }
+  rect.w1.h3.active:nth-child(19) {
+    background-color: var(--tertiary);
+  }
+
+  rect.w1.h2.active:nth-child(20) {
+    background-color: var(--primary);
+  }
+  rect.w1.h2.active:nth-child(21) {
+    background-color: var(--secondary);
+  }
+  rect.w1.h2.active:nth-child(22) {
+    background-color: var(--tertiary);
+  }
+  rect.w1.h2.active:nth-child(23) {
+    background-color: var(--quaternary);
+  }
+
+  rect.w1.h1.active:nth-child(24) {
+    background-color: var(--primary);
+  }
+  rect.w1.h1.active:nth-child(25) {
+    background-color: var(--secondary);
+  }
+  rect.w1.h1.active:nth-child(26) {
+    background-color: var(--tertiary);
+  }
+  rect.w1.h1.active:nth-child(27) {
+    background-color: var(--quaternary);
+  }
+  rect.w1.h1.active:nth-child(28) {
+    background-color: var(--quinary);
+  }

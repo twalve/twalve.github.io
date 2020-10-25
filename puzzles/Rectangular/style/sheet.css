@@ -107,12 +107,12 @@ rect.c3 {
 }
 
 rect.active {
-  background-color: var(--tertiary);
   border: 0.125rem solid var(--light);
 }
 
 button.active {
-  background-color: var(--tertiary);
+  background-color: var(--dark);
+  color: var(--light);
 }
 
 h2 {
