@@ -15,6 +15,7 @@
       const h = source.id.substr(3);
       const selector = ".w" + w + ".h" + h;
 
+      PZZL.reset();
       PZZL.toggle(source);
 
       if (document.querySelector(selector).classList.contains("active")) {
@@ -46,6 +47,11 @@
 
       document.querySelector("#count").innerHTML = count;
     },
+    empty: function () {
+      document.querySelectorAll("rect").forEach((element) => {
+        element.classList.add("empty");
+      });
+    },
     switch: function (event) {
       const selector = event.target;
 
@@ -73,6 +79,11 @@
 
       document.querySelector("#count").addEventListener("click", PZZL.switch);
     },
+    reset: function () {
+      document.querySelectorAll(".empty").forEach((element) => {
+        element.classList.remove("empty");
+      });
+    },
     start: function () {
       this.coat();
     },
@@ -82,8 +93,9 @@
         if (PZZL[search.substr(1)]) {
           PZZL[search.substr(1)]()
         }
+      } else {
+        PZZL.empty();
       }
-
     },
     init: function () {
       this.listen();

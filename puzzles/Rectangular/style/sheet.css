@@ -110,6 +110,10 @@ rect.active {
   border: 0.125rem solid var(--light);
 }
 
+rect.empty {
+  border: 0.125rem solid var(--light);
+}
+
 button.active {
   background-color: var(--dark);
   color: var(--light);
