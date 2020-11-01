@@ -1,0 +1,12 @@
+  var | colour | rgba
+  --- | --- | --- 
+  --primary: | blue | rgba(8, 81, 109, .5);
+  --secondary: | yellow | rgba(253, 169, 46, .5);
+  --tertiary: | red | rgba(166, 0, 0, .5);
+  --quaternary: | green | rgba(29, 156, 91, .5);
+  --quinary: | mauve | rgba(183, 133, 167, .5);
+  --senary: | petrol | rgba(63, 174, 191, .5);
+  --septenary: | pink | rgba(191, 63, 174, .5);
+  --octonary: | lime | rgba(110, 191, 63, .5);
+  --nonary: | orange | rgba(191, 144, 63, .5);
+  --denary: | brick | rgba(153, 51, 51, .5);
