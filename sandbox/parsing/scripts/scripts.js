@@ -5,9 +5,21 @@
       const selector = id || "output";
       document.querySelector("#" + selector).value = "";
     },
-    parse: function () {
+    detect: function () {
       const input = document.querySelector("#input");
-      const html = input.value;
+      const value = input.value;
+      // const perl = /<(?'tag'.+?>).*<\/(\g{tag})/;
+      const tags = /<(.+?>).+?<\/(\1)/;
+
+      if (!value.length) {
+
+      } else if (value.match(tags)) {
+        C5N.parse(value);
+      } else {
+        C5N.replace(value);
+      }
+    },
+    parse: function (html) {
       const single = html.split(/\n/).join("");
       const spaced = single.replace(/\s+/gi, " ");
       let explode = spaced.match(/\<.*?\>[^<]*/gi);
@@ -22,10 +34,35 @@
 
       // console.log([html, single, spaced, explode])
 
-      document.querySelector("#output").value = explode.join('\n');
+      document.querySelector("#output").value = explode.join("\n");
     },
     populate: function () {
       document.querySelector("#input").value = snippets[C5N.SNIPPET];
+    },
+    replace: function (string) {
+      const explode = string.match(/{.*?\}/gi);
+      const fragments = [];
+
+      if (explode && explode.length > 0) {
+        let remains = string;
+        
+        for (let explosions in explode) {
+          let shards = remains.split(explode[explosions]);
+
+          fragments.push(shards[0].replace(/\s+/gi, " "));
+          fragments.push(explode[explosions]);
+
+          if (shards[1].indexOf("{") !== -1) {
+            remains = shards[1];
+          } else {
+            fragments.push(shards[1].replace(/\s+/gi, " "));
+          }
+        }
+      } else {
+        fragments.push(spaced);
+      }
+
+      document.querySelector("#output").value = fragments.join("\n");
     },
     search: function () {
       C5N.SNIPPET = window.location.hash.substring(1) || "simple";
@@ -41,7 +78,7 @@
       C5N.populate();
     },
     listen: function () {
-      document.querySelector("#parse").addEventListener("click", C5N.parse);
+      document.querySelector("#parse").addEventListener("click", C5N.detect);
       document.querySelectorAll("menu button").forEach((element) => {
         element.addEventListener("click", C5N.swap);
       });
