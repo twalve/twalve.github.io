@@ -1,6 +1,13 @@
 (function () {
   const C5N = {
     SNIPPET: null,
+    active: function (event) {
+      document.querySelectorAll(".active").forEach((element) => {
+        element.classList.remove("active");
+      });
+      
+      document.querySelector(event).classList.add("active");
+    },
     clear: function (id) {
       const selector = id || "output";
       document.querySelector("#" + selector).value = "";
@@ -40,7 +47,10 @@
       document.querySelector("#output").value = explode.join("\n");
     },
     populate: function () {
+      const fragment = "#" + C5N.SNIPPET
+
       document.querySelector("#input").value = snippets[C5N.SNIPPET];
+      C5N.active(fragment);
     },
     render: function (string) {
       document.querySelector("#output").value = string;
