@@ -24,3 +24,8 @@ button, select {
 [type=button], [type=reset], [type=submit], button {
   -webkit-appearance: button;
 }
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
