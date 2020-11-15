@@ -50,3 +50,7 @@ button.active:hover {
 div.island {
   margin: 1rem 0;
 }
+
+div.island button {
+  font-variant: small-caps;
+}
