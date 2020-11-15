@@ -10,13 +10,16 @@
       const value = input.value;
       // const perl = /<(?'tag'.+?>).*<\/(\g{tag})/;
       const tags = /<(.+?>).+?<\/(\1)/;
+      const braces = /\{.+?\}/;
 
       if (!value.length) {
 
       } else if (value.match(tags)) {
         C5N.parse(value);
-      } else {
+      } else if (value.match(braces)) {
         C5N.replace(value);
+      } else {
+        C5N.render(value);
       }
     },
     parse: function (html) {
@@ -39,8 +42,11 @@
     populate: function () {
       document.querySelector("#input").value = snippets[C5N.SNIPPET];
     },
+    render: function (string) {
+      document.querySelector("#output").value = string;
+    },
     replace: function (string) {
-      const explode = string.match(/{.*?\}/gi);
+      const explode = string.match(/{.+?\}/gi);
       const fragments = [];
 
       if (explode && explode.length > 0) {
@@ -59,7 +65,7 @@
           }
         }
       } else {
-        fragments.push(spaced);
+        fragments.push(string);
       }
 
       document.querySelector("#output").value = fragments.join("\n");
