@@ -1,5 +1,6 @@
 (function () {
   const C5N = {
+    EXPLODE: null,
     SNIPPET: null,
     active: function (event) {
       document.querySelectorAll(".active").forEach((element) => {
@@ -12,15 +13,21 @@
       const selector = id || "output";
       document.querySelector("#" + selector).value = "";
     },
+    check: function (array) {
+      for (const member in array) {
+        if (array[member].indexOf("{") !== -1) {
+          console.log(["Braces detected. Secondary replace recommended", array[member]])
+        }
+      }
+    },
     detect: function () {
       const input = document.querySelector("#input");
       const value = input.value;
-      // const perl = /<(?'tag'.+?>).*<\/(\g{tag})/;
-      const tags = /<(.+?>).+?<\/(\1)/;
+      const tags = /<(.+?)\s?[^>]*>/;
       const braces = /\{.+?\}/;
 
       if (!value.length) {
-
+        // TODO Notify the need for a value to test
       } else if (value.match(tags)) {
         C5N.parse(value);
       } else if (value.match(braces)) {
@@ -29,10 +36,25 @@
         C5N.render(value);
       }
     },
+    explode: function (string) {
+      return string.match(/\<.*?\>[^<]*/gi);
+    },
+    output: function (output, source) {
+      if (source === "parse") {
+        C5N.check(output);
+      }
+
+      document.querySelector("#output").value = output.join("\n");
+    },
     parse: function (html) {
       const single = html.split(/\n/).join("");
-      const spaced = single.replace(/\s+/gi, " ");
-      let explode = spaced.match(/\<.*?\>[^<]*/gi);
+      let spaced = single.replace(/\s+/gi, " ");
+
+      if (spaced.charAt(0) !== "<") {
+        spaced = "<ftx>" + spaced;
+      }
+
+      const explode = C5N.explode(spaced);
 
       if (explode && explode.length > 0) {
         for (let explosions in explode) {
@@ -42,9 +64,9 @@
         explode = [spaced];
       }
 
-      // console.log([html, single, spaced, explode])
+      C5N.EXPLODE = explode;
 
-      document.querySelector("#output").value = explode.join("\n");
+      C5N.output(explode, "parse");
     },
     populate: function () {
       const fragment = "#" + C5N.SNIPPET
@@ -63,7 +85,7 @@
         let remains = string;
         
         for (let explosions in explode) {
-          let shards = remains.split(explode[explosions]);
+          const shards = remains.split(explode[explosions]);
 
           fragments.push(shards[0].replace(/\s+/gi, " "));
           fragments.push(explode[explosions]);
@@ -78,7 +100,7 @@
         fragments.push(string);
       }
 
-      document.querySelector("#output").value = fragments.join("\n");
+      C5N.output(fragments, "replace");
     },
     search: function () {
       C5N.SNIPPET = window.location.hash.substring(1) || "simple";
