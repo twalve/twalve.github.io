@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>C5N | Text component parts</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+		<link rel="stylesheet" href="style/reset.css" type="text/css">
+		<link rel="stylesheet" href="style/bootstrap.css" type="text/css">
+		<link rel="stylesheet" href="style/sheet.css" type="text/css">
+	</head>
+	<body id="canvas">
+    <menu>
+      <ol>
+        <li><button class="btn btn-outline-primary" id="bold">{bold}</button></li>
+        <li><button class="btn btn-outline-primary" id="icon">{ICON}</button></li>
+        <li><button class="btn btn-outline-primary" id="multi">mul\nti</button></li>
+        <li><button class="btn btn-outline-primary" id="strong">&lt;strong></strong></button></li>
+        <li><button class="btn btn-outline-primary" id="inline">in&lt;li>ne</button></li>
+        <li><button class="btn btn-outline-primary" id="simple">simple</button></li>
+        <li><button class="btn btn-outline-primary" id="structured">structured</button></li>
+      </ol>
+    </menu>
+    <main>
+      <textarea class="form-control" id="input" rows="5"></textarea>
+      <div class="island">
+        <button class="btn btn-primary btn-block" id="parse">parse</button>
+      </div>
+      <textarea class="form-control" id="output" rows="10"></textarea>
+		</main>
+		<script src="vendor/micro/µ.js"></script>
+		<script src="scripts/snippets.js"></script>
+		<script src="scripts/scripts.js"></script>
+	</body>
+</html>
