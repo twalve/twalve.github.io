@@ -38,6 +38,18 @@
   border-color: #0062cc;
 }
 
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #5c636a;
+  border-color: #565e64;
+}
+
 .btn-outline-primary {
   color: #007bff;
   border-color: #007bff;
@@ -47,6 +59,17 @@
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
 .btn-block {
@@ -72,4 +95,17 @@
 
 textarea.form-control {
   height: auto;
+}
+
+
+.btn-stay {
+  text-align: right;
+}
+
+.btn-stay-2 {
+  width: 16.25rem;
+}
+
+.btn-stay-3 {
+  width: 24.5rem;
 }

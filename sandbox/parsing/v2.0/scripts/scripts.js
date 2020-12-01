@@ -130,7 +130,11 @@
     populate: function () {
       const fragment = "#" + C5N.SNIPPET
 
-      document.querySelector("#input").value = snippets[C5N.SNIPPET];
+      if (C5N.SNIPPET !== "clear") {
+        document.querySelector("#input").value = snippets[C5N.SNIPPET];
+      } else {
+        document.querySelector("#input").value = "";
+      }
 
       C5N.active(fragment);
     },
