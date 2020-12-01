@@ -14,16 +14,6 @@
       const tags = /<(.+?)\s?[^>]*>/;
       const braces = /\{.+?\}/;
 
-      // if (!value.length) {
-      //   // TODO Notify the need for a value to test
-      // } else if (value.match(tags)) {
-      //   FTX.parse(value);
-      // } else if (value.match(braces)) {
-      //   FTX.replace(value);
-      // } else {
-      //   FTX.render(value);
-      // }
-
       if (!value.length) {
         FTX.render("NO INPUT DETECTED\nPlease provide a parsable source");
       } else if (!value.match(tags) && !value.match(braces)) {
@@ -73,17 +63,22 @@
 
       if (explode && explode.length > 0) {
         let remains = string;
-        
+
         for (let explosions in explode) {
           const shards = remains.split(explode[explosions]);
 
-          fragments.push(shards[0].replace(/\s+/gi, " "));
+          if (shards[0].length) {
+            fragments.push(shards[0].replace(/\s+/gi, " "));
+          }
+
           fragments.push(explode[explosions]);
 
           if (shards[1].indexOf("{") !== -1) {
             remains = shards[1];
           } else {
-            fragments.push(shards[1].replace(/\s+/gi, " "));
+            if (shards[1].length) {
+              fragments.push(shards[1].replace(/\s+/gi, " "));
+            }
           }
         }
       } else {
