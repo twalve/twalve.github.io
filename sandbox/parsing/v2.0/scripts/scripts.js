@@ -4,7 +4,7 @@
     check: function (array) {
       for (const member in array) {
         if (array[member].indexOf("{") !== -1) {
-          console.log(["[FTX] Braces detected. Secondary replace recommended", array[member]])
+          return true;
         }
       }
     },
@@ -14,15 +14,30 @@
       const tags = /<(.+?)\s?[^>]*>/;
       const braces = /\{.+?\}/;
 
+      // if (!value.length) {
+      //   // TODO Notify the need for a value to test
+      // } else if (value.match(tags)) {
+      //   FTX.parse(value);
+      // } else if (value.match(braces)) {
+      //   FTX.replace(value);
+      // } else {
+      //   FTX.render(value);
+      // }
+
       if (!value.length) {
-        // TODO Notify the need for a value to test
-      } else if (value.match(tags)) {
-        FTX.parse(value);
-      } else if (value.match(braces)) {
-        FTX.replace(value);
-      } else {
+        FTX.render("NO INPUT DETECTED\nPlease provide a parsable source");
+      } else if (!value.match(tags) && !value.match(braces)) {
         FTX.render(value);
       }
+
+      if (value.match(braces)) {
+        FTX.replace(value);
+      }
+
+      if (value.match(tags)) {
+        FTX.parse(value);
+      }
+
     },
     explode: function (string) {
       return string.match(/\<.*?\>[^<]*/gi);
@@ -35,7 +50,7 @@
         spaced = "<ftx>" + spaced;
       }
 
-      const explode = C5N.explode(spaced);
+      const explode = FTX.explode(spaced);
 
       if (explode && explode.length > 0) {
         for (let explosions in explode) {
@@ -116,6 +131,7 @@
       const fragment = "#" + C5N.SNIPPET
 
       document.querySelector("#input").value = snippets[C5N.SNIPPET];
+
       C5N.active(fragment);
     },
     render: function (string) {
