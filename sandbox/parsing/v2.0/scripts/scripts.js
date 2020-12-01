@@ -87,16 +87,13 @@
 
       FTX.SOURCE.output(fragments, "replace");
     },
-    source: function (source) {
-      this.SOURCE = source;
-    },
-    init: function () {
+    init: function (source) {
       // Wait for UI to initialize
+      this.SOURCE = source;
     }
   };
 
   window.FTX = FTX;
-  FTX.init();
 
   const C5N = {
     EXPLODE: null,
@@ -156,7 +153,7 @@
       });
     },
     init: function () {
-      FTX.source(this);
+      FTX.init(this);
       this.listen();
       this.search();
       this.populate();
