@@ -1,22 +1,10 @@
 (function () {
-  const C5N = {
-    EXPLODE: null,
-    SNIPPET: null,
-    active: function (event) {
-      document.querySelectorAll(".active").forEach((element) => {
-        element.classList.remove("active");
-      });
-      
-      document.querySelector(event).classList.add("active");
-    },
-    clear: function (id) {
-      const selector = id || "output";
-      document.querySelector("#" + selector).value = "";
-    },
+  const FTX = {
+    SOURCE: null,
     check: function (array) {
       for (const member in array) {
         if (array[member].indexOf("{") !== -1) {
-          console.log(["Braces detected. Secondary replace recommended", array[member]])
+          console.log(["[FTX] Braces detected. Secondary replace recommended", array[member]])
         }
       }
     },
@@ -29,22 +17,15 @@
       if (!value.length) {
         // TODO Notify the need for a value to test
       } else if (value.match(tags)) {
-        C5N.parse(value);
+        FTX.parse(value);
       } else if (value.match(braces)) {
-        C5N.replace(value);
+        FTX.replace(value);
       } else {
-        C5N.render(value);
+        FTX.render(value);
       }
     },
     explode: function (string) {
       return string.match(/\<.*?\>[^<]*/gi);
-    },
-    output: function (output, source) {
-      if (source === "parse") {
-        C5N.check(output);
-      }
-
-      document.querySelector("#output").value = output.join("\n");
     },
     parse: function (html) {
       const single = html.split(/\n/).join("");
@@ -64,18 +45,12 @@
         explode = [spaced];
       }
 
-      C5N.EXPLODE = explode;
+      FTX.EXPLODE = explode;
 
-      C5N.output(explode, "parse");
-    },
-    populate: function () {
-      const fragment = "#" + C5N.SNIPPET
-
-      document.querySelector("#input").value = snippets[C5N.SNIPPET];
-      C5N.active(fragment);
+      FTX.SOURCE.output(explode, "parse");
     },
     render: function (string) {
-      document.querySelector("#output").value = string;
+      FTX.SOURCE.render(string);
     },
     replace: function (string) {
       const explode = string.match(/{.+?\}/gi);
@@ -100,7 +75,51 @@
         fragments.push(string);
       }
 
-      C5N.output(fragments, "replace");
+      FTX.SOURCE.output(fragments, "replace");
+    },
+    source: function (source) {
+      this.SOURCE = source;
+    },
+    init: function () {
+      // Wait for UI to initialize
+    }
+  };
+
+  window.FTX = FTX;
+  FTX.init();
+
+  const C5N = {
+    EXPLODE: null,
+    SNIPPET: null,
+    active: function (event) {
+      document.querySelectorAll(".active").forEach((element) => {
+        element.classList.remove("active");
+      });
+      
+      document.querySelector(event).classList.add("active");
+    },
+    clear: function (id) {
+      const selector = id || "output";
+      document.querySelector("#" + selector).value = "";
+    },
+    explode: function (string) {
+      return string.match(/\<.*?\>[^<]*/gi);
+    },
+    output: function (output, source) {
+      if (source === "parse") {
+        FTX.check(output);
+      }
+
+      document.querySelector("#output").value = output.join("\n");
+    },
+    populate: function () {
+      const fragment = "#" + C5N.SNIPPET
+
+      document.querySelector("#input").value = snippets[C5N.SNIPPET];
+      C5N.active(fragment);
+    },
+    render: function (string) {
+      document.querySelector("#output").value = string;
     },
     search: function () {
       C5N.SNIPPET = window.location.hash.substring(1) || "simple";
@@ -116,17 +135,19 @@
       C5N.populate();
     },
     listen: function () {
-      document.querySelector("#parse").addEventListener("click", C5N.detect);
+      document.querySelector("#parse").addEventListener("click", FTX.detect);
       document.querySelectorAll("menu button").forEach((element) => {
         element.addEventListener("click", C5N.swap);
       });
     },
     init: function () {
+      FTX.source(this);
       this.listen();
       this.search();
       this.populate();
     }
   };
+
   window.C5N = C5N;
   C5N.init();
 }());
