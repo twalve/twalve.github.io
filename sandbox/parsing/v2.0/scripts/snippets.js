@@ -1,6 +1,7 @@
 const snippets = {
   bold: `Point your remote at the TV and press {BOLD|TEXT:Volume +}`,
   icon: `Green  {ICON|URL:../images/buttons/buttonGreen.png}  for Yes | Red  {ICON|URL:../images/buttons/buttonRed.png}  for No`,
+  styledIcon: `{ICON|URL:../images/buttons/buttonGreen.png;MARGIN_BOTTOM:-2;MARGIN_LEFT:6;MARGIN_RIGHT:2;}  Go to Top`,
   rgyb: `{ICON|URL:../images/buttons/buttonRed.png} {ICON|URL:../images/buttons/buttonGreen.png} {ICON|URL:../images/buttons/buttonYellow.png} {ICON|URL:../images/buttons/buttonBlue.png}`,
   multi: `Don't Worry.\nPairing can be completed later in Settings.`,
   strong: `<strong>Kindig Customs</strong> Dave buys a 1929 Roadster that he wants to fix up and flip, but Kevin fears he's bought another lemon; Kris tackles an engine that won't cooperate.`,

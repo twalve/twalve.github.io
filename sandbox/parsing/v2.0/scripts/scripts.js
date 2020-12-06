@@ -3,7 +3,7 @@
     SOURCE: null,
     OUTPUT: null,
     break: function (string) {
-      return string.replace(/\n/g, "<br/>");
+      return string.replace(/\n/g, "<br />");
     },
     check: function (array) {
       for (const member in array) {
@@ -121,7 +121,15 @@
         let element = split[0];
 
         if (element.indexOf("{ICON|URL:") === 0) {
-          const params = "src=\"" + element.substring(10);
+          let params = "src=\"" + element.substring(10);
+
+          if (element.indexOf(";") !== -1) {
+            params = params.split(";")[0];
+
+            const styles = element.substring(element.indexOf(";") + 1);
+
+            params += " data-style=\"" + styles;
+          }
 
           coded.push(tag.self("img", params));
         } else if (element.indexOf("{BOLD|TEXT:") === 0) {
