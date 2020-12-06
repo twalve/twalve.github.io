@@ -25,7 +25,7 @@
         FTX.render(value);
       }
 
-      if (value.match(breaks)) {
+      if (value.indexOf("\n\n") || value.match(breaks)) {
         value = FTX.break(value);
       }
 
