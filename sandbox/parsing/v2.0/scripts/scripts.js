@@ -2,6 +2,9 @@
   const FTX = {
     SOURCE: null,
     OUTPUT: null,
+    break: function (string) {
+      return string.replace(/\n/g, "<br/>");
+    },
     check: function (array) {
       for (const member in array) {
         if (array[member].indexOf("{") !== -1) {
@@ -11,14 +14,19 @@
     },
     detect: function () {
       const input = document.querySelector("#input");
-      const value = input.value;
       const tags = /<(.+?)\s?[^>]*>/;
       const braces = /\{.+?\}/;
+      const breaks = /[\\n]/;
+      let value = input.value;
 
       if (!value.length) {
         FTX.render("NO INPUT DETECTED\nPlease provide a parsable source");
       } else if (!value.match(tags) && !value.match(braces)) {
         FTX.render(value);
+      }
+
+      if (value.match(breaks)) {
+        value = FTX.break(value);
       }
 
       if (value.match(braces)) {
