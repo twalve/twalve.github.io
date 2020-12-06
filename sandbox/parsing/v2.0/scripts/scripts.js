@@ -29,6 +29,8 @@
         value = FTX.break(value);
       }
 
+      // NOTE Lightning can accept HTML symbols, E.G. ` · ` middot
+
       if (value.match(braces)) {
         FTX.replace(value);
         FTX.transcode();
