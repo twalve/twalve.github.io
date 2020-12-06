@@ -1,6 +1,7 @@
 (function () {
   const FTX = {
     SOURCE: null,
+    OUTPUT: null,
     check: function (array) {
       for (const member in array) {
         if (array[member].indexOf("{") !== -1) {
@@ -22,12 +23,14 @@
 
       if (value.match(braces)) {
         FTX.replace(value);
+        FTX.transcode();
       }
 
       if (value.match(tags)) {
         FTX.parse(value);
       }
 
+      FTX.SOURCE.output(FTX.OUTPUT, "detect");
     },
     explode: function (string) {
       return string.match(/\<.*?\>[^<]*/gi);
@@ -50,9 +53,7 @@
         explode = [spaced];
       }
 
-      FTX.EXPLODE = explode;
-
-      FTX.SOURCE.output(explode, "parse");
+      FTX.OUTPUT = explode;
     },
     render: function (string) {
       FTX.SOURCE.render(string);
@@ -85,7 +86,46 @@
         fragments.push(string);
       }
 
-      FTX.SOURCE.output(fragments, "replace");
+      FTX.OUTPUT = fragments;
+    },
+    transcode: function () {
+      const coded = [];
+
+      const tag = {
+        end: function (type) {
+          return "</" + type + ">";
+        },
+        self: function (type, params) {
+          return "<" + type + " " + params + "\" />";
+        },
+        start: function (type, params) {
+          if (params) {
+            return "<" + type + " " + params + "\">";
+          } else {
+            return "<" + type + ">";
+          }
+        }
+      }
+
+      for (const index in FTX.OUTPUT) {
+        let line = FTX.OUTPUT[index];
+        const split = line.split("}");
+        let element = split[0];
+
+        if (element.indexOf("{ICON|URL:") === 0) {
+          const params = "src=\"" + element.substring(10);
+
+          coded.push(tag.self("img", params));
+        } else if (element.indexOf("{BOLD|TEXT:") === 0) {
+          const content = element.substring(11);
+
+          coded.push(tag.start("strong") + content + tag.end("strong"));
+        } else {
+          coded.push(line);
+        }
+      }
+
+      FTX.OUTPUT = coded;
     },
     init: function (source) {
       // Wait for UI to initialize
