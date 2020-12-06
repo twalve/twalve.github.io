@@ -5,6 +5,7 @@ const snippets = {
   rgyb: `{ICON|URL:../images/buttons/buttonRed.png} {ICON|URL:../images/buttons/buttonGreen.png} {ICON|URL:../images/buttons/buttonYellow.png} {ICON|URL:../images/buttons/buttonBlue.png}`,
   multi: `Don't Worry.\nPairing can be completed later in Settings.`,
   newline: `Step 3 of 3\n\nTV Guide reloaded.`,
+  entity: `To Start Watching&#58;&hellip;`,
   strong: `<strong>Kindig Customs</strong> Dave buys a 1929 Roadster that he wants to fix up and flip, but Kevin fears he's bought another lemon; Kris tackles an engine that won't cooperate.`,
   inline: `Parental level set to <span style='color: #F0F0F0'>{0}</span> between <span style='color: #F0F0F0'>{1}</span>.`,
   simple: `<a class="show-link show-link--catchup" href="/program/kindig-customs/322906/" data-event-id="117580179">

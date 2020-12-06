@@ -3,7 +3,23 @@
     SOURCE: null,
     OUTPUT: null,
     break: function (string) {
-      return string.replace(/\n/g, "<br />");
+      FTX.OUTPUT = string.replace(/\n/g, "<br />");
+
+      return FTX.OUTPUT;
+    },
+    content: function (string) {
+      const decodeEntities = (entity) => {
+        let str;
+        let temp = document.createElement("p");
+        temp.innerHTML = entity;
+        str = temp.textContent || temp.innerText;
+        temp = null;
+        return str;
+      }
+
+      FTX.OUTPUT = decodeEntities(string);
+
+      return FTX.OUTPUT;
     },
     check: function (array) {
       for (const member in array) {
@@ -14,15 +30,15 @@
     },
     detect: function () {
       const input = document.querySelector("#input");
-      const tags = /<(.+?)\s?[^>]*>/;
+      const content = /\&#.+;/;
       const braces = /\{.+?\}/;
       const breaks = /[\\n]/;
+      const start = /^</;
+      const tags = /<(.+?)\s?[^>]*>/;
       let value = input.value;
 
       if (!value.length) {
         FTX.render("NO INPUT DETECTED\nPlease provide a parsable source");
-      } else if (!value.match(tags) && !value.match(braces)) {
-        FTX.render(value);
       }
 
       if (value.indexOf("\n\n") || value.match(breaks)) {
@@ -31,9 +47,17 @@
 
       // NOTE Lightning can accept HTML symbols, E.G. ` · ` middot
 
+      if (value.match(content)) {
+        value = FTX.content(value);
+      }
+
       if (value.match(braces)) {
         FTX.replace(value);
-        FTX.transcode();
+        value = FTX.transcode();
+      }
+
+      if (!value.match(start)) {
+        value = FTX.wrap(value);
       }
 
       if (value.match(tags)) {
@@ -143,7 +167,16 @@
         }
       }
 
-      FTX.OUTPUT = coded;
+      FTX.OUTPUT = coded.join("");
+
+      return FTX.OUTPUT;
+    },
+    wrap: function (value) {
+      if (value.charAt(0) !== "<") {
+        value = "<ftx>" + value;
+      }
+
+      return value;
     },
     init: function (source) {
       // Wait for UI to initialize
@@ -173,6 +206,10 @@
     output: function (output, source) {
       if (source === "parse") {
         FTX.check(output);
+      }
+
+      if (typeof output === "string") {
+        output = [output];
       }
 
       document.querySelector("#output").value = output.join("\n");
