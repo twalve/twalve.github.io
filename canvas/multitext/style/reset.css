@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+[type=button], [type=reset], [type=submit], button {
+  -webkit-appearance: button;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
