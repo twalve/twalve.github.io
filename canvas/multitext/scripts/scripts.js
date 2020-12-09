@@ -52,7 +52,9 @@
     26: {font: "56px serif", color: PLT.default, text: "your "},
     27: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
     28: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-    29: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false}
+    29: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false},
+
+    25: {font: "60px 'Texta Medium'", color: PLT.default},
   };
 
   const FTX = {
@@ -124,9 +126,11 @@
       let b = 0;
 
       for (const content in contents) {
-        ctx.fillStyle = contents[content].color;
-        ctx.font = contents[content].font;
-        ctx.fillText(contents[content].text, x, y);
+        if (contents[content].text) {
+          FTX.renderText(contents[content], x, y);
+        } else {
+          FTX.renderImage(contents[content], x, y);
+        }
 
         x = x + ctx.measureText(contents[content].text).width;
 
@@ -136,11 +140,22 @@
         }
 
         if (b > FTX.CONTAINER.w) {
-          x = a;
+          b = x = a;
           y += 60;
-          b = 0;
         }
       };
+    },
+    renderImage: function (content, x, y) {
+      const ctx = FTX.CTX;
+
+      // alert(content.font);
+    },
+    renderText: function (content, x, y) {
+      const ctx = FTX.CTX;
+
+      ctx.fillStyle = content.color;
+      ctx.font = content.font;
+      ctx.fillText(content.text, x, y);
     },
     init: function () {
       this.rectangle();
