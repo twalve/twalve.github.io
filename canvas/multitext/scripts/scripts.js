@@ -46,7 +46,7 @@
 
       let x = 16;
       let y = 28;
-      let width = 680;
+      let width = 640;
       let height = 480;
 
       FTX.CONTAINER = {
@@ -67,6 +67,26 @@
       let b = 0;
 
       for (const content in contents) {
+        let next = content * 1 + 1;
+
+        // NOTE Still need to gracefully handle when ctx.measureText(contents[content].text).width is longer than FTX.CONTAINER.w
+        if (contents[next]) {
+          if (contents[next].orphan === false) {
+            if (x + ctx.measureText(contents[content].text).width + ctx.measureText(contents[next].text).width > FTX.CONTAINER.w) {
+              b = x + FTX.CONTAINER.w;
+            }
+          } else {
+            b = x + ctx.measureText(contents[next].text).width;
+          }
+        }
+
+        // NOTE Still need to gracefully handle the x positioning
+        if (b > FTX.CONTAINER.w) {
+          b = x = a;
+          y += 60;
+        }
+
+        // NOTE Still need to `x` calculation to render functions and have them set FTX.OFFSET
         if (contents[content].text) {
           FTX.renderText(contents[content], x, y);
 
@@ -77,14 +97,7 @@
           x = x + contents[content].ow;
         }
 
-        // NOTE Still need to gracefully handle the line-wrap
-        let next = content * 1 + 1;
-        if (contents[next]) {
-          b = x + ctx.measureText(contents[next].text).width;
-        }
-
-        // NOTE Still need to gracefully handle the x positioning
-        if (contents[content].break || b > FTX.CONTAINER.w) {
+        if (contents[content].break) {
           b = x = a;
           y += 60;
         }

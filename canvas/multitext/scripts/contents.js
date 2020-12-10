@@ -11,7 +11,8 @@
 
   const CNTNT = {
     0: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-    1: {font: "bold 60px 'Texta Medium'", color: PLT.default, text: "your ", break: true},
+    // 1: {font: "bold 60px 'Texta Medium'", color: PLT.default, text: "your ", break: true},
+    1: {font: "bold 60px 'Texta Medium'", color: PLT.default, text: "your "},
     2: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
     3: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
     4: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false},
