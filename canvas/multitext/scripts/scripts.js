@@ -2,8 +2,21 @@
   const FTX = {
     CANVAS: null,
     COLORS: null,
+    CONTAINER: {
+      h: null,
+      w: null
+    },
     CONTENTS: null,
+    CONTEXT: {
+      lh: null,
+      x: null,
+      y: null
+    },
     CTX: null,
+    CURRENT: {
+      a: null,
+      b: null
+    },
     _preload: async function () {
       const loadFont = (family, url) => {
         const fontFace = new FontFace(family, `url(${url})`, { display: "swap" });
@@ -46,7 +59,7 @@
 
       let x = 16;
       let y = 28;
-      let width = 640;
+      let width = 1160;
       let height = 480;
 
       FTX.CONTAINER = {
@@ -54,16 +67,19 @@
         w: width
       }
 
-      ctx.fillStyle = FTX.COLORS.grey;
+      ctx.fillStyle = FTX.COLORS.slate;
       ctx.fillRect(x, y, FTX.CONTAINER.w, FTX.CONTAINER.h);
     },
     render: async function () {
       const ctx = FTX.CTX;
       const contents = FTX.CONTENT;
+      const context = FTX.CONTEXT;
 
-      let x = 16;
-      let y = 80;
-      let a = x;
+      context.lh =  null;
+      context.x = 16;
+      context.y = 80;
+
+      let a = context.x;
       let b = 0;
 
       for (const content in contents) {
@@ -72,34 +88,45 @@
         // NOTE Still need to gracefully handle when ctx.measureText(contents[content].text).width is longer than FTX.CONTAINER.w
         if (contents[next]) {
           if (contents[next].orphan === false) {
-            if (x + ctx.measureText(contents[content].text).width + ctx.measureText(contents[next].text).width > FTX.CONTAINER.w) {
-              b = x + FTX.CONTAINER.w;
+            if (context.x + ctx.measureText(contents[content].text).width + ctx.measureText(contents[next].text).width > FTX.CONTAINER.w) {
+              b = context.x + FTX.CONTAINER.w;
             }
+          } else if (context.x + ctx.measureText(contents[content].text).width > FTX.CONTAINER.w) {
+
+          // TODO Consider: 
+          // Halve the string, check
+          // If over, halve halve[0], check, repeat
+          // If under, split[" "], pop() split[0] check, repeat
+
+            b = context.x + ctx.measureText(contents[content].text).width;
           } else {
-            b = x + ctx.measureText(contents[next].text).width;
+            b = context.x + ctx.measureText(contents[next].text).width;
           }
+        } else {
+          // NOTE Still need to gracefully handle  when ctx.measureText(contents[content].text).width is longer than FTX.CONTAINER.w, as above
+          b = context.x + ctx.measureText(contents[content].text).width;
         }
 
         // NOTE Still need to gracefully handle the x positioning
         if (b > FTX.CONTAINER.w) {
-          b = x = a;
-          y += 60;
+          b = context.x = a;
+          context.y += contents[content].line;
         }
 
         // NOTE Still need to `x` calculation to render functions and have them set FTX.OFFSET
         if (contents[content].text) {
-          FTX.renderText(contents[content], x, y);
+          FTX.renderText(contents[content], context.x, context.y);
 
-          x = x + ctx.measureText(contents[content].text).width;
+          context.x = context.x + ctx.measureText(contents[content].text).width;
         } else {
-          FTX.renderImage(contents[content], x, y);
+          FTX.renderImage(contents[content], context.x, context.y);
 
-          x = x + contents[content].ow;
+          context.x = context.x + contents[content].ow;
         }
 
         if (contents[content].break) {
-          b = x = a;
-          y += 60;
+          b = context.x = a;
+          context.y += contents[content].line;
         }
       };
     },
