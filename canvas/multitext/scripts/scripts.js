@@ -54,25 +54,30 @@
       FTX.CONTENT = source;
       FTX.render(this.CANVAS);
     },
-    rectangle: function () {
+    lightbox: function () {
       const ctx = FTX.CTX;
 
-      let x = 16;
-      let y = 28;
-      let width = 1160;
-      let height = 480;
+      let height = 720;
+      let width = 1080;
+
+      let x = 0;
+      let y = 0;
 
       FTX.CONTAINER = {
         h: height,
         w: width
       }
 
-      ctx.fillStyle = FTX.COLORS.slate;
+      ctx.fillStyle = FTX.COLORS.primary;
       ctx.fillRect(x, y, FTX.CONTAINER.w, FTX.CONTAINER.h);
+
+      let a = x + width;
+      let b = height;
+
+      FTX.renderLine({x: x + width, y}, {a, b}, 2, FTX.COLORS.white);
     },
     render: async function () {
       const ctx = FTX.CTX;
-      const contents = FTX.CONTENT;
       const context = FTX.CONTEXT;
 
       context.lh =  null;
@@ -82,28 +87,22 @@
       let a = context.x;
       let b = 0;
 
+      FTX.renderContent();
+
+      const contents = FTX.CONTENT;
+
       for (const content in contents) {
         let next = content * 1 + 1;
 
-        // NOTE Still need to gracefully handle when ctx.measureText(contents[content].text).width is longer than FTX.CONTAINER.w
         if (contents[next]) {
-          if (contents[next].orphan === false) {
+            if (context.x + ctx.measureText(contents[content].text).width > FTX.CONTAINER.w) {
+              b = context.x + ctx.measureText(contents[content].text).width;
+            } else if (contents[next].orphan === false) {
             if (context.x + ctx.measureText(contents[content].text).width + ctx.measureText(contents[next].text).width > FTX.CONTAINER.w) {
               b = context.x + FTX.CONTAINER.w;
             }
-          } else if (context.x + ctx.measureText(contents[content].text).width > FTX.CONTAINER.w) {
-
-          // TODO Consider: 
-          // Halve the string, check
-          // If over, halve halve[0], check, repeat
-          // If under, split[" "], pop() split[0] check, repeat
-
-            b = context.x + ctx.measureText(contents[content].text).width;
-          } else {
-            b = context.x + ctx.measureText(contents[next].text).width;
           }
         } else {
-          // NOTE Still need to gracefully handle  when ctx.measureText(contents[content].text).width is longer than FTX.CONTAINER.w, as above
           b = context.x + ctx.measureText(contents[content].text).width;
         }
 
@@ -130,6 +129,87 @@
         }
       };
     },
+    renderContent: function () {
+      const ctx = FTX.CTX;
+      const contents = FTX.CONTENT;
+      const context = FTX.CONTEXT;
+
+      const lines = {};
+      const members = {};
+
+      const isShorter = function (partial) {
+        let shorter = true;
+
+        if (context.x + ctx.measureText(partial.join(" ")).width < FTX.CONTAINER.w) {
+          shorter = false;
+        }
+
+        return shorter;
+      }
+
+      // NOTE Manipulate the lines of `text`
+      for (const content in contents) {
+        ctx.font = contents[content].font;
+
+        if (context.x + ctx.measureText(contents[content].text).width > FTX.CONTAINER.w) {
+          const next = content * 1 + 1;
+          const words = contents[content].text.split(" ");
+          const partial = [];
+          let index = content * 1 - 1;
+          let finished = false;
+
+          while (words.length > 0) {
+            partial.push(words.shift());
+
+            index += 1;
+
+            while (context.x + ctx.measureText(partial.join(" ")).width < FTX.CONTAINER.w) {
+              let word = words.shift();
+
+              partial.push(word);
+
+              if (words.length === 0) { 
+                finished = true;
+                break; 
+              }
+            }
+
+            if (finished && (contents[next] && contents[next].font === contents[content].font)) {
+              contents[next].text = [partial.join(" "), contents[next].text].join(" ");
+            } else {
+              lines[content + "_" + index] = partial.join(" ");
+            }
+
+            partial.length = 0;
+          }
+        }
+      }
+
+      // NOTE Then wrap each line of `text` as it's parent
+      for (const line in lines) {
+        const split = line.split("_");
+        const source = contents[split[0]];
+
+        source.text = lines[line];
+
+        let current = JSON.stringify(source);
+        current = JSON.parse(current);
+
+        if (!members[split[0]]) {
+          members[split[0]] = [];
+        }
+
+        members[split[0]].push(current);
+      }
+
+      // NOTE We reverse the Array so the replacements occur on Indexes before they get moved. I.E We replace Index 4 and it causes changes only to Members after it in the Array. Then we replace Index 3 and even if we inject a half dozen Members, we're not relying on anything's position in the Array.
+      const keys = Object.keys(members).reverse();
+
+      // NOTE Then insert a block of lines to replace it's parent
+      for (const key in keys) {
+        contents.splice(keys[key], 1, ...members[keys[key]]);
+      }
+    },
     renderImage: function (content, x, y) {
       const ctx = FTX.CTX;
       const image = new Image();
@@ -139,6 +219,16 @@
         ctx.drawImage(image, x, y / 2);
       };
     },
+    renderLine: function (start, end, width, style) {
+      const ctx = FTX.CTX;
+
+      ctx.beginPath();
+      ctx.lineWidth = width || 8;
+      ctx.strokeStyle = style || "black";
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.a, end.b);
+      ctx.stroke(); 
+    },
     renderText: function (content, x, y) {
       const ctx = FTX.CTX;
 
@@ -147,7 +237,7 @@
       ctx.fillText(content.text, x, y);
     },
     init: function () {
-      this.rectangle();
+      this.lightbox();
       this.content(CNTNT);
     }
   }

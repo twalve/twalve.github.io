@@ -18,16 +18,25 @@
   //   4: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false},
   // }
 
-  const CNTNT = {
-    0: {font: "80px 'Texta Light'", color: PLT.grey9, text: "Details Item Title", line: 96, break: true},
-    1: {font: "bold 48px 'Texta Medium'", color: PLT.grey6, text: "Light Entertainment, 2020", line: 66, break: true},
-    2: {font: "bold 48px 'Texta Medium'", color: PLT.grey6, text: "2 Seasons, 84 Episodes", line: 16, break: true},
-    3: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "In west Philadelphia born and raised on the playground was", line: 60},
-    4: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "where I spent most of my days. Chillin' out, maxin', relaxin', all", line: 60},
-    5: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "cool and all shootin' some b-ball outside of the school.", line: 60},
-    6: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "When a couple of guys who were up to no good, started", line: 60},
-    7: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "...", line: 60, orphan: false},
-  }
+  // const CNTNT = {
+  //   0: {font: "80px 'Texta Light'", color: PLT.grey9, text: "Details Item Title", line: 96, break: true},
+  //   1: {font: "bold 48px 'Texta Medium'", color: PLT.grey6, text: "Light Entertainment, 2020", line: 66, break: true},
+  //   2: {font: "bold 48px 'Texta Medium'", color: PLT.grey6, text: "2 Seasons, 84 Episodes", line: 16, break: true},
+  //   3: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "In west Philadelphia born and raised on the playground was", line: 60},
+  //   4: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "where I spent most of my days. Chillin' out, maxin', relaxin', all", line: 60},
+  //   5: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "cool and all shootin' some b-ball outside of the school.", line: 60},
+  //   6: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "When a couple of guys who were up to no good, started", line: 60},
+  //   7: {font: "48px 'Texta Medium'", color: PLT.grey7, text: "...", line: 60, orphan: false},
+  // }
+
+  const CNTNT = [
+    {text: "Details Item Title", line: 96, break: true, font: "80px 'Texta Light'", color: PLT.grey9},
+    {text: "Light Entertainment, 2020", line: 66, break: true, font: "bold 48px 'Texta Medium'", color: PLT.grey6},
+    {text: "2 Seasons, 84 Episodes", line: 16, break: true, ont: "bold 48px 'Texta Medium'", color: PLT.grey6},
+    {text: "In West Philadelphia born and raised on the playground was where I spent most of my days. Chillin' out, maxin', relaxin', all cool and all shootin' some b-ball outside of the school. When a couple of guys who were up to no good, started", line: 60, font: "48px 'Texta Medium'", color: PLT.grey7},
+    {text: "making trouble in my neighborhood I got in one little fight and my mom got scared. She said \"You're movin' with your auntie and uncle in Bel Air\".", line: 60, font: "48px 'Texta Medium'", color: PLT.grey7},
+    // {text: "...", line: 60, orphan: false, font: "48px 'Texta Medium'", color: PLT.grey7}
+  ];
 
   // const CNTNT = {
   //   0: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
