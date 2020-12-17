@@ -1,0 +1,10 @@
+body {
+  background-color: #272620;
+	color: #f0f0f0;
+	font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+}
+
+main {
+	font-size: 2rem;
+	margin: 2rem; 
+}
