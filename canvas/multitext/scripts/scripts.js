@@ -68,13 +68,13 @@
         w: width
       }
 
-      ctx.fillStyle = FTX.COLORS.primary;
+      ctx.fillStyle = FTX.COLORS.slate;
       ctx.fillRect(x, y, FTX.CONTAINER.w, FTX.CONTAINER.h);
 
       let a = x + width;
       let b = height;
 
-      FTX.renderLine({x: x + width, y}, {a, b}, 2, FTX.COLORS.white);
+      // FTX.renderLine({x: x + width, y}, {a, b}, 2, FTX.COLORS.white);
     },
     render: async function () {
       const ctx = FTX.CTX;
@@ -137,10 +137,14 @@
       const lines = {};
       const members = {};
 
-      const isShorter = function (partial) {
+      const isShorter = function (joined) {
         let shorter = true;
 
-        if (context.x + ctx.measureText(partial.join(" ")).width < FTX.CONTAINER.w) {
+        if (Array.isArray(joined)) {
+          joined = joined.join(" ");
+        }
+
+        if (context.x + ctx.measureText(joined).width < FTX.CONTAINER.w) {
           shorter = false;
         }
 
@@ -163,10 +167,21 @@
 
             index += 1;
 
+            // while (isShorter(partial.join(" "))) {
+            // while (isShorter(ctx.measureText(partial.join(" ")))) {
             while (context.x + ctx.measureText(partial.join(" ")).width < FTX.CONTAINER.w) {
               let word = words.shift();
 
-              partial.push(word);
+              // isShorter(partial.join(" "))
+              // isShorter([partial.join(" "), word])
+
+              // if (isShorter([partial.join(" "), word])) {
+              if (context.x + ctx.measureText([partial.join(" "), word].join(" ")).width < FTX.CONTAINER.w) {
+                partial.push(word);
+              } else {
+                words.unshift(word);
+                break; 
+              }              
 
               if (words.length === 0) { 
                 finished = true;
