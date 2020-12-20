@@ -1,3 +1,15 @@
 body {
   background-color: #272620;
+  color: #F0F0F0;
+}
+
+p {
+  font-family: "Texta Medium";
+  font-size: 1.8rem;
+  margin: 0 0 0.0125rem;
+  padding-left: 0.5rem;
+}
+
+span {
+  font-size: 0.8em;
 }

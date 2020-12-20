@@ -58,7 +58,7 @@
       const ctx = FTX.CTX;
 
       let height = 720;
-      let width = 1080;
+      let width = 2160;
 
       let x = 0;
       let y = 0;
@@ -80,7 +80,7 @@
       const ctx = FTX.CTX;
       const context = FTX.CONTEXT;
 
-      context.lh =  null;
+      context.lh =  80;
       context.x = 16;
       context.y = 80;
 
@@ -109,7 +109,7 @@
         // NOTE Still need to gracefully handle the x positioning
         if (b > FTX.CONTAINER.w) {
           b = context.x = a;
-          context.y += contents[content].line;
+          context.y += contents[content].line || context.lh;
         }
 
         // NOTE Still need to `x` calculation to render functions and have them set FTX.OFFSET
@@ -125,7 +125,7 @@
 
         if (contents[content].break) {
           b = context.x = a;
-          context.y += contents[content].line;
+          context.y += contents[content].line || context.lh;
         }
       };
     },

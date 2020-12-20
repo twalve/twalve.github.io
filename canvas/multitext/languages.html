@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>C5N | Canvas multi-part text</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+		<link rel="stylesheet" href="style/reset.css" type="text/css">
+		<link rel="stylesheet" href="style/sheet.css" type="text/css">
+	</head>
+	<body>
+    <main>
+      <p id="english">This sentence only has English characters</p>
+      <p id="arabic">This sentence has the Arabic characters —<span> الخاص بك </span>— for "your".</p>
+      <p id="chinese">This sentence has the Chinese characters —<span> 您的 </span>— for "your".</p>
+      <p id="japanese">This sentence has the Japanese characters —<span> 君の </span>— for "your".</p>
+      <canvas id="canvas"></canvas>
+		</main>
+		<script src="fonts/api.js"></script>
+		<script src="vendor/micro/µ.js"></script>
+		<script src="scripts/palette.js"></script>
+		<script src="scripts/snippets.js"></script>
+		<script src="scripts/contents.js"></script>
+		<script src="scripts/scripts.js"></script>
+	</body>
+</html>
