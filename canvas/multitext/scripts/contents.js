@@ -87,65 +87,77 @@ const CNTNT = [
 // Different font weight, font family, font size (smaller and larger), font style, font default, and non-English characters
 /* */
 const CNTNT = {
-  0: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  1: {font: "60px 'Texta Medium'", color: PLT.default, text: "your "},
-  2: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  3: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  4: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  0: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  1: { font: "60px 'Texta Medium'", color: PLT.default, text: "your " },
+  2: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  3: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  4: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  5: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  6: {font: "bold 60px 'Texta Medium'", color: PLT.default, text: "your "},
-  7: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  8: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  9: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  5: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  6: { font: "bold 60px 'Texta Medium'", color: PLT.default, text: "your " },
+  7: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  8: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  9: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  10: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  11: {font: "60px 'Texta Heavy'", color: PLT.default, text: "your "},
-  12: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  13: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  14: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  10: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  11: { font: "60px 'Texta Heavy'", color: PLT.default, text: "your " },
+  12: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  13: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  14: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  15: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  16: {font: "72px 'Texta Medium'", color: PLT.default, text: "your "},
-  17: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  18: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  19: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  15: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  16: { font: "72px 'Texta Medium'", color: PLT.default, text: "your " },
+  17: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  18: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  19: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  20: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  21: {font: "48px 'Texta Medium'", color: PLT.default, text: "your "},
-  22: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  23: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  24: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  20: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  21: { font: "48px 'Texta Medium'", color: PLT.default, text: "your " },
+  22: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  23: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  24: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  25: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  26: {font: "italic 60px 'Texta Medium'", color: PLT.default, text: "your "},
-  27: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  28: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  29: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  25: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  26: { font: "italic 60px 'Texta Medium'", color: PLT.default, text: "your " },
+  27: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  28: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  29: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  30: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  31: {font: "56px serif", color: PLT.default, text: "your "},
-  32: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  33: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  34: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  30: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  31: { font: "56px serif", color: PLT.default, text: "your " },
+  32: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  33: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  34: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  35: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  36: {font: "48px 'Texta Medium'", color: PLT.default, text: "君の "},
-  37: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  38: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  39: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  35: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  36: { font: "48px 'Texta Medium'", color: PLT.default, text: "君の " },
+  37: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  38: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  39: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  40: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  41: {font: "48px 'Texta Medium'", color: PLT.default, text: "الخاص بك "},
-  42: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  43: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  44: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true},
+  40: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  41: { font: "48px 'Texta Medium'", color: PLT.default, text: "الخاص بك " },
+  42: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  43: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  44: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
 
-  45: {font: "60px 'Texta Medium'", color: PLT.default, text: "All "},
-  46: {font: "48px 'Texta Medium'", color: PLT.default, text: "您的 "},
-  47: {font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, "},
-  48: {font: "60px 'Texta Medium'", color: PLT.primary, text: "easy"},
-  49: {font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true}
+  45: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  46: { font: "48px 'Texta Medium'", color: PLT.default, text: "您的 " },
+  47: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  48: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  49: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
+
+  50: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  51: { font: "48px 'Texta Light'", color: PLT.default, text: "your " },
+  52: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  53: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  54: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true },
+
+  55: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
+  56: { font: "48px 'Texta Thin'", color: PLT.default, text: "your " },
+  57: { font: "60px 'Texta Medium'", color: PLT.default, text: "entertainment, " },
+  58: { font: "60px 'Texta Medium'", color: PLT.primary, text: "easy" },
+  59: { font: "60px 'Texta Medium'", color: PLT.default, text: ".", orphan: false, break: true }
 };
 /**/
 
@@ -171,16 +183,16 @@ const CNTNT = {
 // Items with non-English characters
 /* */
 const LNGG = [
-  {font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Arabic characters — "},
-  {font: "48px 'Texta Medium'", color: PLT.grey9, text: "الخاص بك "},
-  {font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true},
+  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Arabic characters — " },
+  { font: "48px 'Texta Medium'", color: PLT.grey9, text: "الخاص بك " },
+  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true },
 
-  {font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Chinese characters — "},
-  {font: "48px 'Texta Medium'", color: PLT.grey9, text: "您的"},
-  {font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true},
+  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Chinese characters — " },
+  { font: "48px 'Texta Medium'", color: PLT.grey9, text: "您的" },
+  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true },
 
-  {font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Japanese characters — "},
-  {font: "48px 'Texta Medium'", color: PLT.grey9, text: "君の"},
-  {font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true}
+  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Japanese characters — " },
+  { font: "48px 'Texta Medium'", color: PLT.grey9, text: "君の" },
+  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true}
 ];
 /**/
