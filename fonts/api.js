@@ -1,11 +1,11 @@
-alert("CHICKEN")
-
+// alert("CHICKEN")
 
 (async () => {
 	const fonts = [
 		{ family: 'Texta Light', url: '/fonts/texta-light.ttf' },
 		{ family: 'Texta Medium', url: '/fonts/texta-medium.ttf' },
-		{ family: 'Texta Heavy', url: '/fonts/texta-heavy.ttf' }
+		{ family: 'Texta Heavy', url: '/fonts/texta-heavy.ttf' },
+		{ family: 'Texta Thin', url: '/fonts/texta-thin.ttf' }
 	]
 
   const loadFont = (family, url) => {
@@ -41,4 +41,5 @@ alert("CHICKEN")
 	renderText(ctx, 'Texta Light', { font: 'Texta Light', x: 0, y: 0 });
 	renderText(ctx, 'Texta Medium', { font: 'Texta Medium', x: 0, y: 30 });
 	renderText(ctx, 'Texta Heavy', { font: 'Texta Heavy', x: 0, y: 60 });
+	renderText(ctx, 'Texta Thin', { font: 'Texta Thin', x: 0, y: 90 });
 })();
