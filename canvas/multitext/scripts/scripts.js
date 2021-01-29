@@ -118,8 +118,8 @@
       let a = context.x;
       let b = 0;
 
-      // NOTE source can have :: bold / bolder/ guage / icon / image / linebreak / multi / newline / paragraph
-      const source = arrays["paragraph"];
+      // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph
+      const source = arrays["gauge"];
 
       FTX.CONTENTED = FTX.renderSource(source, context);
 
@@ -160,7 +160,10 @@
           context.x = context.x + contents[content].ow;
         }
 
-        if (contents[content].break) {
+        if (contents[content].text === "") {
+          b = context.x = a;
+          context.y += (contents[content].line || context.lh) * .5;
+        } else if (contents[content].break) {
           b = context.x = a;
           context.y += contents[content].line || context.lh;
         }
@@ -270,21 +273,6 @@
     renderSource: function(members, palette) {
       const rendering = [];
       const rendered = {};
-
-      // TODO Remove when archived
-      /* INPUT / members
-        [
-          "<ftx>Point your remote at the TV and press",
-          "<strong>Volume +",
-          "</strong>"
-        ]
-      */
-      /* OUTPUT
-        {
-          0: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
-          1: { font: "48px 'Texta Thin'", color: PLT.default, text: "your " },
-        }
-      */
 
       for (const member in members) {
         if (members.hasOwnProperty(member)) {

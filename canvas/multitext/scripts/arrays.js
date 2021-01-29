@@ -10,7 +10,7 @@ const arrays = {
     "</strong>",
     "for louder sound"
   ],
-  guage: [
+  gauge: [
     "<ftx>Gauge image",
     "<img src=\"/canvas/multitext/images/gauges/Monotone@2x.png\" height=\"24\" width=\"36\" />",
     " inlined in text ",
