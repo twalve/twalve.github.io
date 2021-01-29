@@ -12,7 +12,7 @@ const arrays = {
   ],
   gauge: [
     "<ftx>Gauge image",
-    "<img src=\"/canvas/multitext/images/gauges/Monotone@2x.png\" height=\"24\" width=\"36\" />",
+    "<img src=\"/canvas/multitext/images/gauges/Monotone@2x.png\" height=\"48\" width=\"48\" />",
     " inlined in text ",
     "<br />",
     "<br />I got in one little fight and my mom got scared. She said \"You're movin' with your aunty and uncle in Bel Air\"."

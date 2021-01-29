@@ -75,7 +75,7 @@
         w: width
       }
 
-      ctx.fillStyle = FTX.COLORS.slate;
+      ctx.fillStyle = FTX.COLORS.slate; // FTX.COLORS.primary;
       ctx.fillRect(x, y, FTX.CONTAINER.w, FTX.CONTAINER.h);
 
       let a = x + width;
@@ -108,9 +108,10 @@
     render: async function() {
       const ctx = FTX.CTX;
       const context = FTX.CONTEXT;
+      const reducer = 0.5;
 
       context.color = "#B0AEAC"; //"#B0AEAC";#009BE4
-      context.font = "48px 'Texta Medium'";
+      context.font = "54px 'Texta Medium'";
       context.lh = 80;
       context.x = 0;
       context.y = 80;
@@ -151,6 +152,10 @@
         }
 
         if (contents[content].text) {
+          if (contents[content - 1] && contents[content - 1].src) {
+            contents[content].text = contents[content].text.substring(1);
+          }
+
           FTX.renderText(contents[content], context.x, context.y);
 
           context.x = context.x + ctx.measureText(contents[content].text).width;
@@ -162,7 +167,7 @@
 
         if (contents[content].text === "") {
           b = context.x = a;
-          context.y += (contents[content].line || context.lh) * .5;
+          context.y += (contents[content].line || context.lh) * reducer;
         } else if (contents[content].break) {
           b = context.x = a;
           context.y += contents[content].line || context.lh;
@@ -326,11 +331,11 @@
               font: palette.font,
               text: phrase.substring(6)
             });
-          } else if (true) {
+          } else {
             rendering.push({
               color: palette.color,
               font: palette.font,
-              text: " " + phrase
+              text: phrase
             });
           }
         }
