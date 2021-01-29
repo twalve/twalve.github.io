@@ -85,7 +85,7 @@ const CNTNT = [
 /**/
 
 // Different font weight, font family, font size (smaller and larger), font style, font default, and non-English characters
-/* */
+/* * /
 const CNTNT = {
   0: { font: "60px 'Texta Medium'", color: PLT.default, text: "All " },
   1: { font: "60px 'Texta Medium'", color: PLT.default, text: "your " },
@@ -181,18 +181,85 @@ const CNTNT = {
 /**/
 
 // Items with non-English characters
+/* * /
+const CNTNT = [{
+    font: "60px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "This sentence has the Arabic characters — "
+  },
+  {
+    font: "48px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "الخاص بك "
+  },
+  {
+    font: "60px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "— for \"your\".",
+    orphan: false,
+    break: true
+  },
+
+  {
+    font: "60px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "This sentence has the Chinese characters — "
+  },
+  {
+    font: "48px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "您的"
+  },
+  {
+    font: "60px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "— for \"your\".",
+    orphan: false,
+    break: true
+  },
+
+  {
+    font: "60px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "This sentence has the Japanese characters — "
+  },
+  {
+    font: "48px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "君の"
+  },
+  {
+    font: "60px 'Texta Medium'",
+    color: PLT.grey9,
+    text: "— for \"your\".",
+    orphan: false,
+    break: true
+  }
+];
+/**/
+
+// Multiple paragraphs
 /* */
-const LNGG = [
-  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Arabic characters — " },
-  { font: "48px 'Texta Medium'", color: PLT.grey9, text: "الخاص بك " },
-  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true },
-
-  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Chinese characters — " },
-  { font: "48px 'Texta Medium'", color: PLT.grey9, text: "您的" },
-  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true },
-
-  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "This sentence has the Japanese characters — " },
-  { font: "48px 'Texta Medium'", color: PLT.grey9, text: "君の" },
-  { font: "60px 'Texta Medium'", color: PLT.grey9, text: "— for \"your\".", orphan: false, break: true}
+const CNTNT = [{
+    font: "48px 'Texta Medium'",
+    color: PLT.default,
+    text: "In West Philadelphia born and raised on the playground was where I spent most of my days. Chillin' out, maxin', relaxin', all cool and all shootin' some b-ball outside of the school. When a couple of guys who were up to no good, started making trouble in my neighborhood.",
+    orphan: false,
+    break: true
+  },
+  {
+    font: "48px 'Texta Medium'",
+    color: PLT.primary,
+    text: "",
+    orphan: false,
+    break: true
+  },
+  {
+    font: "48px 'Texta Medium'",
+    color: PLT.primary,
+    text: "I got in one little fight and my mom got scared. She said \"You're movin' with your aunty and uncle in Bel Air\".",
+    orphan: false,
+    break: true
+  }
 ];
 /**/
