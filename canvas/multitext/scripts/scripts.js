@@ -119,8 +119,8 @@
       let a = context.x;
       let b = 0;
 
-      // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph
-      const source = arrays["gauge"];
+      // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph / play
+      const source = arrays["play"];
 
       FTX.CONTENTED = FTX.renderSource(source, context);
 
@@ -256,13 +256,14 @@
       const ctx = FTX.CTX;
       const image = new Image();
 
-      // TODO Investigate Image size control
-      // console.log(x, y);
-      console.log(content);
-
       image.src = content.src;
       image.onload = function() {
-        ctx.drawImage(image, x, y / 2);
+        // ctx.drawImage(image, x, y / 2);
+        ctx.drawImage(image, x, y / 2, content.w, content.h);
+
+        // TODO Investigate Image y position placement;
+        // console.log(image);
+        // ctx.drawImage(image, x, y - (content.h * .66));
       };
     },
     renderLine: function(start, end, width, style) {

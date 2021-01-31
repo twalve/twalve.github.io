@@ -12,7 +12,7 @@ const arrays = {
   ],
   gauge: [
     "<ftx>Gauge image",
-    "<img src=\"/canvas/multitext/images/gauges/Monotone@2x.png\" height=\"48\" width=\"48\" />",
+    "<img src=\"/canvas/multitext/images/gauges/Halffield@2x.png\" height=\"48\" width=\"48\" />",
     " inlined in text ",
     "<br />",
     "<br />I got in one little fight and my mom got scared. She said \"You're movin' with your aunty and uncle in Bel Air\"."
@@ -46,5 +46,10 @@ const arrays = {
     "<ftx>In West Philadelphia born and raised on the playground was where I spent most of my days. Chillin' out, maxin', relaxin', all cool and all shootin' some b-ball outside of the school. When a couple of guys who were up to no good, started making trouble in my neighborhood.",
     "<br />",
     "<br />I got in one little fight and my mom got scared. She said \"You're movin' with your aunty and uncle in Bel Air\"."
-  ]
+  ],
+  play: [
+    "<img src=\"/canvas/multitext/images/icons/ring-play@2x.png\" height=\"48\" width=\"48\" />",
+    "<img src=\"/canvas/multitext/images/clear/Transparent@2x.png\" height=\"48\" width=\"64\" />",
+    " Watch"
+  ],
 };
