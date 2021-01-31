@@ -110,8 +110,9 @@
       const context = FTX.CONTEXT;
       const reducer = 0.5;
 
-      context.color = "#B0AEAC"; //"#B0AEAC";#009BE4
+      context.color = "#B0AEAC"; // "#B0AEAC"; #009BE4
       context.font = "54px 'Texta Medium'";
+      context.strong = "#F0F0F0"; // "#F0F0F0"; #009BE4
       context.lh = 60;
       context.x = 0;
       context.y = 80;
@@ -315,7 +316,7 @@
           } else if (phrase.indexOf("<strong") === 0) {
             rendering.push({
               // color: palette.color,
-              color: PLT.white,
+              color: palette.strong,
               // font: palette.font.replace(/px '/, "px bold '"),
               font: "bold " + palette.font,
               text: phrase.replace(/<strong>/, " ")
