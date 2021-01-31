@@ -65,7 +65,7 @@
       const ctx = FTX.CTX;
 
       let height = 720;
-      let width = 1856;
+      let width = 1856; // 16 * 116
 
       let x = 0;
       let y = 0;
@@ -165,7 +165,10 @@
           context.x = context.x + contents[content].ow;
         }
 
-        if (contents[content].text === "") {
+        if (contents[content].y) {
+          b = context.x = a;
+          context.y += context.lh + contents[content].y * 1;
+        } else if (contents[content].text === "") {
           b = context.x = a;
           context.y += (contents[content].line || context.lh) * reducer;
         } else if (contents[content].break) {
@@ -317,7 +320,7 @@
               font: "bold " + palette.font,
               text: phrase.replace(/<strong>/, " ")
             });
-          } else if (phrase.indexOf("<br />") === 0) {
+          } else if (phrase.indexOf("<br") === 0) {
             const previous = rendering.length - 1;
             if (rendering[previous]) {
               const temp = rendering[previous];
@@ -332,6 +335,10 @@
               color: palette.color,
               font: palette.font,
               text: phrase.substring(6)
+            });
+          } else if (phrase.indexOf("<hr") === 0) {
+            rendering.push({
+              y: phrase.split("height=\"")[1].split("\"")[0]
             });
           } else {
             rendering.push({
