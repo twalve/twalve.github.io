@@ -65,7 +65,7 @@
       const ctx = FTX.CTX;
 
       let height = 720;
-      let width = 1280;
+      let width = 1856;
 
       let x = 0;
       let y = 0;
@@ -75,7 +75,7 @@
         w: width
       }
 
-      ctx.fillStyle = FTX.COLORS.slate; // FTX.COLORS.primary;
+      ctx.fillStyle = FTX.COLORS.dark; // FTX.COLORS.primary;
       ctx.fillRect(x, y, FTX.CONTAINER.w, FTX.CONTAINER.h);
 
       let a = x + width;
@@ -112,15 +112,15 @@
 
       context.color = "#B0AEAC"; //"#B0AEAC";#009BE4
       context.font = "54px 'Texta Medium'";
-      context.lh = 80;
+      context.lh = 60;
       context.x = 0;
       context.y = 80;
 
       let a = context.x;
       let b = 0;
 
-      // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph / play
-      const source = arrays["play"];
+      // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph / play / tenplay
+      const source = arrays["tenplay"];
 
       FTX.CONTENTED = FTX.renderSource(source, context);
 
@@ -309,9 +309,10 @@
               w: image.w,
               ow: image.ow
             });
-          } else if (phrase.indexOf("<strong>") === 0) {
+          } else if (phrase.indexOf("<strong") === 0) {
             rendering.push({
-              color: palette.color,
+              // color: palette.color,
+              color: PLT.white,
               // font: palette.font.replace(/px '/, "px bold '"),
               font: "bold " + palette.font,
               text: phrase.replace(/<strong>/, " ")

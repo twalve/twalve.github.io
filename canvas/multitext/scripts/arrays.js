@@ -52,4 +52,13 @@ const arrays = {
     "<img src=\"/canvas/multitext/images/clear/Transparent@2x.png\" height=\"48\" width=\"64\" />",
     " Watch"
   ],
+  tenplay: [
+    "<strong>4. Episode 4 | 55min",
+    "<img src=\"/canvas/multitext/images/clear/Transparent@2x.png\" height=\"48\" width=\"120\" />",
+    "<img src=\"/canvas/multitext/images/canvas/rating-g@3x.png\" height=\"64\" width=\"64\" />",
+    "<img src=\"/canvas/multitext/images/clear/Transparent@2x.png\" height=\"48\" width=\"8\" />",
+    "<img src=\"/canvas/multitext/images/canvas/meta-cc@3x.png\" height=\"64\" width=\"64\" />",
+    "<br />",
+    "<br />Celebrities battle it out in song with one major twist; each singer's identity is concealed from the audience and our guessing panel, Jackie O, Dannii Minogue, Dave Hughes, and Lindsay Lohan."
+  ]
 };
