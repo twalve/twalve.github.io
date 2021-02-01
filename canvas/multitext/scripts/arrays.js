@@ -60,5 +60,11 @@ const arrays = {
     "<img src=\"/canvas/multitext/images/canvas/meta-cc@3x.png\" height=\"64\" width=\"64\" />",
     "<hr height=\"32\" />",
     "<br />Celebrities battle it out in song with one major twist; each singer's identity is concealed from the audience and our guessing panel, Jackie O, Dannii Minogue, Dave Hughes, and Lindsay Lohan."
+  ],
+  watch: [
+    "<center>",
+    "<img src=\"/canvas/multitext/images/icons/ring-play@2x.png\" height=\"48\" width=\"48\" />",
+    "<img src=\"/canvas/multitext/images/clear/Transparent@2x.png\" height=\"48\" width=\"64\" />",
+    " Watch"
   ]
 };

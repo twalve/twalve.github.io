@@ -3,6 +3,7 @@
     CANVAS: null,
     COLORS: null,
     CONTAINER: {
+      center: null,
       h: null,
       w: null
     },
@@ -64,8 +65,11 @@
     lightbox: function() {
       const ctx = FTX.CTX;
 
-      let height = 720;
-      let width = 1856; // 16 * 116
+      // let height = 720;
+      // let width = 1856; // 16 * 116
+
+      let height = 120;
+      let width = 540;
 
       let x = 0;
       let y = 0;
@@ -75,7 +79,7 @@
         w: width
       }
 
-      ctx.fillStyle = FTX.COLORS.dark; // FTX.COLORS.primary;
+      ctx.fillStyle = FTX.COLORS.primary; // FTX.COLORS.primary;
       ctx.fillRect(x, y, FTX.CONTAINER.w, FTX.CONTAINER.h);
 
       let a = x + width;
@@ -105,14 +109,44 @@
 
       return source;
     },
+    parseWidth: function(members) {
+      let width = 0;
+
+      for (const member in members) {
+        if (members.hasOwnProperty(member)) {
+          let phrase = members[member];
+
+          if (phrase.indexOf("<img") === 0) {
+            const image = FTX.parseImage(phrase);
+            width += image.ow;
+          } else if (phrase.indexOf("<icon") === 0) {
+            // TODO Discover a solution
+            width += 16;
+          } else if (phrase.indexOf("<") !== 0) {
+            // TODO Discover a solution
+            FTX.CTX.font = "54px 'Texta Medium'";
+            width += FTX.CTX.measureText(phrase).width;
+          }
+        }
+      }
+
+      const container = Math.round(FTX.CONTAINER.w);
+      width = Math.round(width);
+      width = (container - width) / 2;
+
+      console.log(["[LOG parseWidth", FTX.CONTAINER.w, width, (container - width), (container - width) / 2])
+      console.log(["[LOG parseWidth", Math.round(width)])
+
+      return Math.round(width);
+    },
     render: async function() {
       const ctx = FTX.CTX;
       const context = FTX.CONTEXT;
       const reducer = 0.5;
 
-      context.color = "#B0AEAC"; // "#B0AEAC"; #009BE4
+      context.color = "#F0F0F0"; // #B0AEAC; #009BE4; #F0F0F0;
       context.font = "54px 'Texta Medium'";
-      context.strong = "#F0F0F0"; // "#F0F0F0"; #009BE4
+      context.strong = "#F0F0F0"; // #F0F0F0; #009BE4
       context.lh = 60;
       context.x = 0;
       context.y = 80;
@@ -120,8 +154,8 @@
       let a = context.x;
       let b = 0;
 
-      // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph / play / tenplay
-      const source = arrays["tenplay"];
+      // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph / play / tenplay / watch
+      const source = arrays["watch"];
 
       FTX.CONTENTED = FTX.renderSource(source, context);
 
@@ -340,6 +374,13 @@
           } else if (phrase.indexOf("<hr") === 0) {
             rendering.push({
               y: phrase.split("height=\"")[1].split("\"")[0]
+            });
+          } else if (phrase.indexOf("<center") === 0) {
+            rendering.push({
+              h: 20,
+              src: "/canvas/multitext/images/clear/Transparent@2x.png",
+              w: 20,
+              ow: FTX.parseWidth(members)
             });
           } else {
             rendering.push({
