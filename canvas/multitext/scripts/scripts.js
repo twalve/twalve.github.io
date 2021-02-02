@@ -100,14 +100,21 @@
           source["src"] = parts[part].split("\"")[1];
         } else if (parts[part].indexOf("height=") === 0) {
           source["h"] = parts[part].split("\"")[1];
+          source["oh"] = source["h"] * 1 + buffer;
         } else if (parts[part].indexOf("width=") === 0) {
           source["w"] = parts[part].split("\"")[1];
+          source["ow"] = source["w"] * 1 + buffer;
         }
       }
 
-      source["ow"] = source["w"] * 1 + buffer;
+      if (!source["src"]) {
+        source["src"] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=";
+      }
 
       return source;
+    },
+    parseSpacer: function(element) {
+      return FTX.parseImage(element);
     },
     parseWidth: function(members) {
       let width = 0;
@@ -117,6 +124,9 @@
           let phrase = members[member];
 
           if (phrase.indexOf("<img") === 0) {
+            const image = FTX.parseImage(phrase);
+            width += image.ow;
+          } else if (phrase.indexOf("<spacer") === 0) {
             const image = FTX.parseImage(phrase);
             width += image.ow;
           } else if (phrase.indexOf("<icon") === 0) {
@@ -133,9 +143,6 @@
       const container = Math.round(FTX.CONTAINER.w);
       width = Math.round(width);
       width = (container - width) / 2;
-
-      console.log(["[LOG parseWidth", FTX.CONTAINER.w, width, (container - width), (container - width) / 2])
-      console.log(["[LOG parseWidth", Math.round(width)])
 
       return Math.round(width);
     },
@@ -376,11 +383,23 @@
               y: phrase.split("height=\"")[1].split("\"")[0]
             });
           } else if (phrase.indexOf("<center") === 0) {
+            var center = FTX.parseSpacer(phrase);
+
             rendering.push({
               h: 20,
-              src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=",
               w: 20,
-              ow: FTX.parseWidth(members)
+              ow: FTX.parseWidth(members),
+              src: center.src
+            });
+          } else if (phrase.indexOf("<spacer") === 0) {
+            var spacer = FTX.parseSpacer(phrase);
+
+            rendering.push({
+              h: spacer.h,
+              w: spacer.w,
+              oh: spacer.oh,
+              ow: spacer.ow,
+              src: spacer.src
             });
           } else {
             rendering.push({

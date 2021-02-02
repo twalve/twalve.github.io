@@ -64,7 +64,7 @@ const arrays = {
   watch: [
     "<center>",
     "<img src=\"/canvas/multitext/images/icons/ring-play@2x.png\" height=\"48\" width=\"48\" />",
-    "<img src=\"/canvas/multitext/images/clear/Transparent@2x.png\" height=\"48\" width=\"64\" />",
+    "<spacer width=\"64\" />",
     " Watch"
   ]
 };
