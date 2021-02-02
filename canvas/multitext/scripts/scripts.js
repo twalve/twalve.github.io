@@ -378,7 +378,7 @@
           } else if (phrase.indexOf("<center") === 0) {
             rendering.push({
               h: 20,
-              src: "/canvas/multitext/images/clear/Transparent@2x.png",
+              src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=",
               w: 20,
               ow: FTX.parseWidth(members)
             });
