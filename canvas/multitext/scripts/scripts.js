@@ -87,36 +87,7 @@
 
       // FTX.renderLine({x: x + width, y}, {a, b}, 2, FTX.COLORS.white);
     },
-    parseIcon: function(element) {
-      return FTX.parseImage(element);
-    },
-    parseImage: function(element) {
-      const parts = element.split(" ");
-      const source = {};
-      const buffer = 0; // 2 x 16
-
-      for (const part in parts) {
-        if (parts[part].indexOf("src=") === 0) {
-          source["src"] = parts[part].split("\"")[1];
-        } else if (parts[part].indexOf("height=") === 0) {
-          source["h"] = parts[part].split("\"")[1];
-          source["oh"] = source["h"] * 1 + buffer;
-        } else if (parts[part].indexOf("width=") === 0) {
-          source["w"] = parts[part].split("\"")[1];
-          source["ow"] = source["w"] * 1 + buffer;
-        }
-      }
-
-      if (!source["src"]) {
-        source["src"] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=";
-      }
-
-      return source;
-    },
-    parseSpacer: function(element) {
-      return FTX.parseImage(element);
-    },
-    parseWidth: function(members) {
+    getWidth: function(members) {
       let width = 0;
 
       for (const member in members) {
@@ -145,6 +116,35 @@
       width = (container - width) / 2;
 
       return Math.round(width);
+    },
+    parseIcon: function(element) {
+      return FTX.parseImage(element);
+    },
+    parseImage: function(element) {
+      const parts = element.split(" ");
+      const source = {};
+      const buffer = 0; // 2 x 16
+
+      for (const part in parts) {
+        if (parts[part].indexOf("src=") === 0) {
+          source["src"] = parts[part].split("\"")[1];
+        } else if (parts[part].indexOf("height=") === 0) {
+          source["h"] = parts[part].split("\"")[1];
+          source["oh"] = source["h"] * 1 + buffer;
+        } else if (parts[part].indexOf("width=") === 0) {
+          source["w"] = parts[part].split("\"")[1];
+          source["ow"] = source["w"] * 1 + buffer;
+        }
+      }
+
+      if (!source["src"]) {
+        source["src"] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=";
+      }
+
+      return source;
+    },
+    parseSpacer: function(element) {
+      return FTX.parseImage(element);
     },
     render: async function() {
       const ctx = FTX.CTX;
@@ -388,7 +388,7 @@
             rendering.push({
               h: 20,
               w: 20,
-              ow: FTX.parseWidth(members),
+              ow: FTX.getWidth(members),
               src: center.src
             });
           } else if (phrase.indexOf("<spacer") === 0) {
