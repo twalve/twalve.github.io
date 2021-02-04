@@ -65,11 +65,13 @@
     lightbox: function() {
       const ctx = FTX.CTX;
 
-      // let height = 720;
-      // let width = 1856; // 16 * 116
+      // DETAIL LIST ITEM
+      let height = 720;
+      let width = 1856; // 16 * 116
 
-      let height = 120;
-      let width = 540;
+      // BUTTON
+      // let height = 120;
+      // let width = 540;
 
       let x = 0;
       let y = 0;
@@ -79,7 +81,7 @@
         w: width
       }
 
-      ctx.fillStyle = FTX.COLORS.primary; // FTX.COLORS.primary;
+      ctx.fillStyle = FTX.COLORS.dark; // FTX.COLORS.primary; FTX.COLORS.dark;
       ctx.fillRect(x, y, FTX.CONTAINER.w, FTX.CONTAINER.h);
 
       let a = x + width;
@@ -162,7 +164,7 @@
       let b = 0;
 
       // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph / play / tenplay / watch
-      const source = arrays["watch"];
+      const source = arrays["tenplay"];
 
       FTX.CONTENTED = FTX.renderSource(source, context);
 
