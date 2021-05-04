@@ -164,7 +164,7 @@
       let b = 0;
 
       // NOTE source can have :: bold / bolder/ gauge / icon / image / linebreak / multi / newline / paragraph / play / tenplay / watch
-      const source = arrays["tenplay"];
+      const source = arrays["watch"];
 
       FTX.CONTENTED = FTX.renderSource(source, context);
 
